@@ -6,21 +6,22 @@ public class Grid : MonoBehaviour
 {
     private int width;
     private int height;
-    private int cellSize;
+    private float cellSize;
     private int[,] cells;
+    public GameObject gameObject1;
 
-    public Grid(int width, int height, int cellSize, int[,] cells)
+    public Grid(int width, int height, float cellSize)
     {
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
-        this.cells = new int[width,height];
+        cells = new int[width, height];
 
-        for(int i = 0; i<width; i++)
+        for(int i = 0; i < cells.GetLength(0); i++)
         {
-            for(int j = 0; j < height ; j++)
+            for(int j = 0; j < cells.GetLength(1); j++)
             {
-                CreateWorldText(cells[i,j].ToString(), Color.white, null,GetWorldPos(i,j),30);
+                CreateWorldText(cells[i, j].ToString(), Color.white, gameObject1.transform, GetWorldPos(i, j)+ new Vector3(cellSize,cellSize)* .5f, 30);
                 Debug.DrawLine(GetWorldPos(i, j), GetWorldPos(i, j + 1), Color.white, 100f);
                 Debug.DrawLine(GetWorldPos(i, j), GetWorldPos(i + 1, j), Color.white, 100f);
             }
@@ -34,7 +35,7 @@ public class Grid : MonoBehaviour
         return new Vector3(x,y)* cellSize;
     }
 
-    public static TextMesh CreateWorldText( string text , Color color,Transform parent = null, Vector3 localPos = default(Vector3),int fontSize = 40, TextAnchor textAnchor = TextAnchor.MiddleCenter, TextAlignment alignment = TextAlignment.Left, int sortingOrder = 5000)
+    public static TextMesh CreateWorldText( string text , Color color,Transform parent , Vector3 localPos ,int fontSize , TextAnchor textAnchor = TextAnchor.MiddleCenter, TextAlignment alignment = TextAlignment.Left, int sortingOrder = 5000)
     {
         GameObject go = new GameObject("World_Text", typeof(TextMesh));
         Transform transform = go.transform;
