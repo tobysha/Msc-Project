@@ -152,15 +152,15 @@ public class RoadCreateLogic : MonoBehaviour
     List<Vector3Int> FindPath(Vector3Int startCell)
     {
         List<Vector3Int> path = new List<Vector3Int>();
-        Queue<Vector3Int> queue = new Queue<Vector3Int>();
+        Stack<Vector3Int> stack = new Stack<Vector3Int>();
         HashSet<Vector3Int> visited = new HashSet<Vector3Int>();
 
-        queue.Enqueue(startCell);
+        stack.Push(startCell);
         visited.Add(startCell);
 
-        while (queue.Count > 0)
+        while (stack.Count > 0)
         {
-            Vector3Int current = queue.Dequeue();
+            Vector3Int current = stack.Pop();
             path.Add(current);
 
             foreach (Vector3Int direction in new Vector3Int[] { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right })
@@ -168,7 +168,7 @@ public class RoadCreateLogic : MonoBehaviour
                 Vector3Int neighbor = current + direction;
                 if (!visited.Contains(neighbor) && IsRoadTile(neighbor))
                 {
-                    queue.Enqueue(neighbor);
+                    stack.Push(neighbor);
                     visited.Add(neighbor);
                 }
             }

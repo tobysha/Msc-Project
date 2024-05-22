@@ -10,6 +10,7 @@ public class MovementSystem : MonoBehaviour
     public List<Vector3Int> waypoints; // Array of grid positions
     public float speed = 2f; // Movement speed
 
+    private bool movingForward = true; // Direction flag
     private int currentWaypointIndex = 0; // Current waypoint index
     void Start()
     {
@@ -39,7 +40,24 @@ public class MovementSystem : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+            if (movingForward)
+            {
+                currentWaypointIndex++;
+                if (currentWaypointIndex >= waypoints.Count)
+                {
+                    currentWaypointIndex = waypoints.Count - 1;
+                    movingForward = false;
+                }
+            }
+            else
+            {
+                currentWaypointIndex--;
+                if (currentWaypointIndex < 0)
+                {
+                    currentWaypointIndex = 0;
+                    movingForward = true;
+                }
+            }
         }
         //Vector3 vector3 = transform.position;
         //this.gameObject.transform.position = new Vector3(vector3.x + speed * velocity.GetVelocity_X() * Time.deltaTime, vector3.y + speed * velocity.GetVelocity_Y() * Time.deltaTime, 0f);
