@@ -13,6 +13,7 @@ public class RoadCreateLogic : MonoBehaviour
     public TileBase[] tiles; // 需要拖动修改的Tile
     public TileBase roadTile;
     public GameObject TowerPrefab;
+    public int RoadCost = 10;
 
     private Dictionary<Vector3Int, TileBase> originalTiles = new Dictionary<Vector3Int, TileBase>();
     private bool debugMode = false;
@@ -21,6 +22,13 @@ public class RoadCreateLogic : MonoBehaviour
     private GameObject TowerShadow;
     private bool isPlacingTower = false;
 
+    private GameDataNeverDestroy gameData;
+    private int originMoney;
+    private void Start()
+    {
+        GameObject data = GameObject.Find("GameManager");
+        gameData = data.GetComponent<GameDataNeverDestroy>();
+    }
     private void Update()
     {
         if (debugMode)
@@ -56,8 +64,9 @@ public class RoadCreateLogic : MonoBehaviour
         {
             Vector3Int cellPosition = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)); // 获取鼠标当前位置对应的Tilemap坐标
             TileBase currentTile = tilemap.GetTile(cellPosition);
-            if (currentTile != null && IsGroundTile(currentTile)) // 确保该位置在Tilemap范围内
+            if (currentTile != null && IsGroundTile(currentTile) && gameData.getMoney() > RoadCost) // 确保该位置在Tilemap范围内
             {
+                gameData.setMoney(gameData.getMoney()-RoadCost);
                 // 根据鼠标拖动，修改Tilemap中的Tile内容
                 tilemap.SetTile(cellPosition, tiles[Random.Range(0, tiles.Length)]);
             }
@@ -65,6 +74,7 @@ public class RoadCreateLogic : MonoBehaviour
     }
     public void SaveOriginalState()
     {
+        originMoney = gameData.getMoney();
         originalTiles.Clear();
         BoundsInt bounds = tilemap.cellBounds;
         foreach (Vector3Int pos in bounds.allPositionsWithin)
@@ -82,6 +92,7 @@ public class RoadCreateLogic : MonoBehaviour
     }
     public void ResetTilemap()
     {
+        gameData.setMoney(originMoney);
         tilemap.ClearAllTiles();
         foreach (var kvp in originalTiles)
         {
@@ -97,27 +108,28 @@ public class RoadCreateLogic : MonoBehaviour
         return results.Count > 0;
     }
 
-    
-    public GameObject getTowerPrefab()
-    {
-        return TowerPrefab;
-    }
     public void setPlacingTowerState(bool b)
     {
         isPlacingTower = b;
     }
-    public GameObject getTowerShadow()
-    {
-        return TowerShadow;
-    }
-    public void setTowerShadow(GameObject go)
-    {
-        TowerShadow = go;
-    }
+
     private void TowerSpawner()
     {
-        if (isPlacingTower)
+        int towervalue = TowerPrefab.GetComponent<LifeSystem>().getValue();
+        if (isPlacingTower && gameData.getMoney() > towervalue)
         {
+            if (TowerShadow == null)
+            {
+                GameObject monsterShadow = Instantiate(TowerPrefab);
+                SpriteRenderer sr = monsterShadow.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    Color c = sr.color;
+                    c.a = 0.5f; // Semi-transparent
+                    sr.color = c;
+                }
+                TowerShadow = monsterShadow;
+            }
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);
             Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cellPos);
@@ -125,6 +137,7 @@ public class RoadCreateLogic : MonoBehaviour
             if (TowerShadow != null)
             {
                 TowerShadow.transform.position = cellCenterPos;
+                TowerShadow.GetComponent<FireSystem>().SetisShadow(true);
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -135,13 +148,19 @@ public class RoadCreateLogic : MonoBehaviour
                     isPlacingTower = false;
                     GameObject tower = Instantiate(TowerPrefab, cellCenterPos, Quaternion.identity);
                     MovementSystem towermovement = tower.GetComponent<MovementSystem>();
+                    //int towervalue = tower.GetComponent<LifeSystem>().getValue();
                     if (towermovement != null)
                     {
                         towermovement.InitializePath(tilemap, path);
                     }
+                    gameData.setMoney(gameData.getMoney() - towervalue);
                     Destroy(TowerShadow);
                 }
             }
+        }
+        else
+        {
+            isPlacingTower = false;
         }
     }
     bool IsRoadTile(Vector3Int cellPos)
