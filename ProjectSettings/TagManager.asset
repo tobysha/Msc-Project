@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - Water
   - Towerbullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

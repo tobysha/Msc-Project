@@ -7,7 +7,7 @@ public class TowerCollision : MonoBehaviour
     private FireSystem _fireSystem;
     private void Start()
     {
-        _fireSystem = GetComponent<FireSystem>();
+        _fireSystem = GetComponentInParent<FireSystem>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

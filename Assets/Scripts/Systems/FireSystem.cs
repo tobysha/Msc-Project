@@ -51,7 +51,8 @@ public class FireSystem : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             // 创建旋转四元数，只绕 Z 轴旋转
             Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            Instantiate(bullet, this.transform.position, rotation, bulletCreate.gameObject.transform);
+            GameObject go = Instantiate(bullet, this.transform.position, rotation, bulletCreate.gameObject.transform);
+            go.GetComponent<bulletMovement>().setTarget(tf);
             countdown = CoolDowntime;
         }
         

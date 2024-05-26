@@ -4,17 +4,48 @@ using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
 {
+    enum bulletType
+    {
+        TOWERBULLET = 0,
+        ENEMYBULLET = 1
+    }
     public int damage;
+    bulletType bt;
+    private void Start()
+    {
+        
+        if (this.CompareTag("EnemyBullet"))
+        {
+            bt = bulletType.ENEMYBULLET;
+        }
+        else if (this.CompareTag("Towerbullet"))
+        {
+            bt = bulletType.TOWERBULLET;
+        }
+    }
     public int getDamage()
     {
         return damage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        switch(bt)
         {
-            collision.GetComponent<LifeSystem>().setHP(-damage);
-            Destroy(gameObject);
+            case bulletType.ENEMYBULLET:
+                if (collision.gameObject.CompareTag("Tower"))
+                {
+                    collision.GetComponent<LifeSystem>().setHP(-damage);
+                    Destroy(gameObject);
+                }
+                break;
+            case bulletType.TOWERBULLET:
+                if (collision.gameObject.CompareTag("Enemy"))
+                {
+                    collision.GetComponent<LifeSystem>().setHP(-damage);
+                    Destroy(gameObject);
+                }
+                break;
         }
+
     }
 }
