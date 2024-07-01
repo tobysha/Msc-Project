@@ -17,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - towers and enemy
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: environment
     uniqueID: 4127129295
+    locked: 0
+  - name: gameObjects
+    uniqueID: 3076590107
     locked: 0

@@ -7,6 +7,7 @@ public class bulletMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform target;
+    [SerializeField] private float speed  =  2;
     void Start()
     {
         
@@ -29,6 +30,6 @@ public class bulletMovement : MonoBehaviour
             // 设置对象的旋转角度
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        this.gameObject.transform.position += gameObject.transform.right * Time.deltaTime;
+        this.gameObject.transform.position += gameObject.transform.right * Time.deltaTime * speed;
     }
 }

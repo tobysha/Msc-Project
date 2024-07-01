@@ -13,13 +13,14 @@ public class FireSystem : MonoBehaviour
     public float countdown = 0f;
 
     private bool isShadow = false;
-    public List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies;
     private void Start()
     {
-        //countdown = 0f;
-        //bulletCreate = GameObject.Find("BulletCreate"); ;
+        countdown = 0f;
+        bulletCreate = GameObject.Find("BulletCreate"); ;
         //CreateFire();
         //AdjustTileZPosition();
+        enemies = new List<GameObject>();
     }
 
     private void Update()
