@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class FireSystem : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class FireSystem : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     private void Start()
     {
-        countdown = 0f;
-        bulletCreate = GameObject.Find("BulletCreate"); ;
+        //countdown = 0f;
+        //bulletCreate = GameObject.Find("BulletCreate"); ;
         //CreateFire();
+        //AdjustTileZPosition();
     }
+
     private void Update()
     {
         countdown -= Time.deltaTime;
