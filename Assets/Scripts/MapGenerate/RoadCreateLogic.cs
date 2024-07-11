@@ -135,15 +135,15 @@ public class RoadCreateLogic : MonoBehaviour
         {
             if (TowerShadow == null)
             {
-                GameObject monsterShadow = Instantiate(TowerPrefab);
-                SpriteRenderer sr = monsterShadow.GetComponent<SpriteRenderer>();
+                GameObject towerShadow = Instantiate(TowerPrefab);
+                SpriteRenderer sr = towerShadow.GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
                     Color c = sr.color;
                     c.a = 0.5f; // Semi-transparent
                     sr.color = c;
                 }
-                TowerShadow = monsterShadow;
+                TowerShadow = towerShadow;
             }
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);

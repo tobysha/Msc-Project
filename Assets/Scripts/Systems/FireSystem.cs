@@ -13,14 +13,17 @@ public class FireSystem : MonoBehaviour
     public float countdown = 0f;
 
     private bool isShadow = false;
+    private GameManager gameManager;
+
     public List<GameObject> enemies;
     private void Start()
     {
         countdown = 0f;
-        bulletCreate = GameObject.Find("BulletCreate"); ;
+        bulletCreate = GameObject.Find("BulletCreate"); 
         //CreateFire();
         //AdjustTileZPosition();
         enemies = new List<GameObject>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -29,6 +32,10 @@ public class FireSystem : MonoBehaviour
         if (enemies.Count != 0 && !isShadow)
         {
             CreateFire(getCloseEnemy());
+        }
+        if(gameManager.GetcurrentStage() == GameManager.GameStage.crazyStage)
+        {
+            CoolDowntime /= 2;
         }
     }
     private Transform getCloseEnemy()

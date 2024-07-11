@@ -13,13 +13,16 @@ public class UIControlSystem : MonoBehaviour
 
     private RoadCreateLogic rcl;
     private GameDataNeverDestroy gdnd;
+    private GameManager gameManager;
     
     public void Start()
     {
         rcl = tilemap.GetComponent<RoadCreateLogic>();
         GameObject data = GameObject.Find("GameManager");
         gdnd = data.GetComponent<GameDataNeverDestroy>();
+        gameManager = data.GetComponent<GameManager>();
     }
+    /*Stage1 UI*/
     private void Update()
     {
         moneyText.text = "Money: " + gdnd.getMoney();
@@ -42,6 +45,13 @@ public class UIControlSystem : MonoBehaviour
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(true);
     }
+    public void OnFinishButton()
+    {
+        gameManager.GameStageChange(GameManager.GameStage.GamingStage);
+    }
+
+
+    /*Stage2 UI*/
     public void OnCreateTower1()
     {
         rcl.setPlacingTowerState(true);
