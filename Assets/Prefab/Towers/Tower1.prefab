@@ -394,10 +394,13 @@ GameObject:
   - component: {fileID: 1303735333067873508}
   - component: {fileID: 1459585662092284560}
   - component: {fileID: 43681072974169791}
+  - component: {fileID: 553816292104180465}
   - component: {fileID: 5313459238265880499}
   - component: {fileID: 1576806462297380055}
+  - component: {fileID: -8821008987214969426}
   - component: {fileID: 7325351546110601800}
   - component: {fileID: 1155820866980919542}
+  - component: {fileID: 2476725311478120135}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Tower
@@ -489,6 +492,20 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   waypoints: []
   speed: 1
+--- !u!114 &553816292104180465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820243548913518498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd13b73d059a5e4ebd764be3306cf56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7222043132704073015, guid: 0c2fd4d86765583499ee9011fab451f6, type: 3}
+  bulletCreate: {fileID: 0}
 --- !u!114 &5313459238265880499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,10 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a2e2a9eb1433e44887bfef218601dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7222043132704073015, guid: 0c2fd4d86765583499ee9011fab451f6, type: 3}
-  bulletCreate: {fileID: 0}
-  CoolDowntime: 3
-  countdown: 0
   enemies: []
 --- !u!114 &1576806462297380055
 MonoBehaviour:
@@ -522,6 +535,24 @@ MonoBehaviour:
   MaxHP: 100
   HP: 100
   value: 100
+--- !u!114 &-8821008987214969426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820243548913518498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827e4dc7c3fbe4448bb90ec1f46e722d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Tower
+  HP: 100
+  speed: 2
+  atk: 3
+  atkRange: {fileID: 0}
+  CoolDowntime: 3
 --- !u!50 &7325351546110601800
 Rigidbody2D:
   serializedVersion: 4
@@ -595,6 +626,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.76, y: 0.76}
   m_EdgeRadius: 0
+--- !u!114 &2476725311478120135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820243548913518498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be34085bdc03dfc4f9c5c4a7b06cbe3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9064444928818132655
 GameObject:
   m_ObjectHideFlags: 0

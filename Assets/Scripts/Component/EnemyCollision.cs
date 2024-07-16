@@ -13,7 +13,6 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Tower"))
         {
-
             _fireSystem.enemies.Add(collision.gameObject);
             //LifeSystem ls = collision.gameObject.GetComponent<LifeSystem>();
             //ls.setHP(bullet.GetComponent<DamageSystem>().getDamage());

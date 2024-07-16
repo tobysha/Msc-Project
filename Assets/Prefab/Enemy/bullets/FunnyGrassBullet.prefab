@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8849719195527565240}
   - component: {fileID: 4734103884972588401}
   m_Layer: 0
-  m_Name: Enemy1Bullet
+  m_Name: FunnyGrassBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

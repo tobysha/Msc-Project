@@ -9,7 +9,8 @@ using UnityEngine.UIElements;
 public class RoadCreateLogic : MonoBehaviour
 {
     public Tilemap tilemap;
-    public TileBase[] groundTiles;
+    [SerializeField] private Tilemap[] Environments;
+    public TileBase[] environmentTiles;
     public TileBase[] tiles; // 需要拖动修改的Tile
     public TileBase roadTile;
     public GameObject TowerPrefab;
@@ -52,16 +53,27 @@ public class RoadCreateLogic : MonoBehaviour
             }
         }
     }
-    private bool IsGroundTile(TileBase tile)
+    private bool IsGroundTile(Vector3Int position)
     {
-        foreach (TileBase groundTile in groundTiles)
+        bool isground = true;
+        if(tilemap.GetTile(position) == roadTile)
         {
-            if (tile == groundTile)
+            return false;
+        }
+        foreach (Tilemap tm in Environments)
+        {
+            TileBase currentTile = tm.GetTile(position);
+            foreach(TileBase tb in environmentTiles)
             {
-                return true;
+                if (currentTile == tb)
+                {
+                    isground = false;
+                    //Debug.Log("dizhuan");
+                    break;
+                }
             }
         }
-        return false;
+        return isground;
     }
     private void ChangeRoad()
     {
@@ -79,7 +91,7 @@ public class RoadCreateLogic : MonoBehaviour
         {
             Vector3Int cellPosition = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)); // 获取鼠标当前位置对应的Tilemap坐标
             TileBase currentTile = tilemap.GetTile(cellPosition);
-            if (currentTile != null && IsGroundTile(currentTile) && gameData.getMoney() > RoadCost) // 确保该位置在Tilemap范围内
+            if (currentTile != null && IsGroundTile(cellPosition) && gameData.getMoney() > RoadCost) // 确保该位置在Tilemap范围内
             {
                 gameData.setMoney(gameData.getMoney()-RoadCost);
                 // 根据鼠标拖动，修改Tilemap中的Tile内容

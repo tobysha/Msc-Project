@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         GamingStage,
         crazyStage
     }
-    public float GameTime = 300;
+    public float GameTime = 200;
 
     private GameStage CurrentStage = GameStage.RoadCreateStage;
     [SerializeField] private GameObject Stage1_UI;
@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
         if(GameTime <= 0)
         {
             gameoverText.SetActive(true);
+        }
+        else if(GameTime <= 30f && GameTime > 0 )
+        {
+            CurrentStage = GameStage.crazyStage;
         }
     }
 
