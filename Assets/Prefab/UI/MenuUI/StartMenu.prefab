@@ -91,8 +91,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+      - m_Target: {fileID: 8933670668364845222, guid: b85085385e17dd94b971df1a58c6daa4, type: 3}
+        m_TargetAssemblyTypeName: UIControlSystem, Assembly-CSharp
         m_MethodName: OnExitGame
         m_Mode: 1
         m_Arguments:
@@ -200,8 +200,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: jump to your death
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
-  m_sharedMaterial: {fileID: -141782966715738162, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -433,8 +433,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+      - m_Target: {fileID: 8933670668364845222, guid: b85085385e17dd94b971df1a58c6daa4, type: 3}
+        m_TargetAssemblyTypeName: UIControlSystem, Assembly-CSharp
         m_MethodName: On_start_button
         m_Mode: 1
         m_Arguments:
@@ -679,8 +679,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+      - m_Target: {fileID: 8933670668364845222, guid: b85085385e17dd94b971df1a58c6daa4, type: 3}
+        m_TargetAssemblyTypeName: UIControlSystem, Assembly-CSharp
         m_MethodName: On_setting_button
         m_Mode: 1
         m_Arguments:
@@ -788,8 +788,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
-  m_sharedMaterial: {fileID: -141782966715738162, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -922,8 +922,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Setting
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
-  m_sharedMaterial: {fileID: -141782966715738162, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1093,8 +1093,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
-  m_sharedMaterial: {fileID: -141782966715738162, guid: c6e73c5fd05c0af4aa3e4045b6bbdc5c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

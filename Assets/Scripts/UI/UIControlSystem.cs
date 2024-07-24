@@ -39,20 +39,53 @@ public class UIControlSystem : MonoBehaviour
             GameObject data = GameObject.Find("GameManager");
             gameManager = data.GetComponent<GameManager>();
         }
+        music_volume_setting();
+    }
+    void music_volume_setting()
+    {
+        musicAudio = GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            if (GameDataNeverDestroy._gameDataNeverDestroy != null)
+            {
+                musicAudio.volume = GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn;
+                gameAudio.volume = GameDataNeverDestroy._gameDataNeverDestroy.game_Volume;
+            }
+        }
+        else
+        {
+            if (GameDataNeverDestroy._gameDataNeverDestroy != null)
+            {
+                Music_slider.value = GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn;
+                game_sound_slider.value = GameDataNeverDestroy._gameDataNeverDestroy.game_Volume;
+            }
+        }
     }
     /*-----------------Menu UI---------------------------*/
+
+    public void On_Music_Value_Change(Slider slider)
+    {
+        //Debug.Log(slider.value);
+        musicAudio.volume = slider.value;
+        GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn = slider.value;
+    }
+    public void On_Game_Value_Change(Slider slider)
+    {
+        gameAudio.volume = slider.value;
+        GameDataNeverDestroy._gameDataNeverDestroy.game_Volume = slider.value;
+    }
     public void On_start_button()
     {
         StartMenu.SetActive(false);
         levelselection.SetActive(true);
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
 
     }
     public void On_setting_button()
     {
         StartMenu.SetActive(false);
         settingmenu.SetActive(true);
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
     }
     public void On_selection_button(int j)
     {
@@ -60,7 +93,7 @@ public class UIControlSystem : MonoBehaviour
         string s = currentButton.GetComponent<TextMeshPro>().text;
         int i = 0;
         int.TryParse(s, out i);//Change the value tpye into int*/
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
         try
         {
             SceneManager.LoadScene(j);
@@ -74,30 +107,83 @@ public class UIControlSystem : MonoBehaviour
     {
         levelselection.SetActive(false);
         StartMenu.SetActive(true);
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
 
     }
     public void On_settingExit_button()
     {
         settingmenu.SetActive(false);
         StartMenu.SetActive(true);
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
     }
     public void OnExitGame()
     {
-        gameAudio.PlayOneShot(buttonClip);
+        //gameAudio.PlayOneShot(buttonClip);
 #if UNITY_EDITOR
         //UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
     }
+    /*----------------------------------Gaming UI-----------------*/
+    public void On_pause_button()
+    {
+        //gameAudio.PlayOneShot(buttonClip);
+        PauseMenu.SetActive(true);
+        Score_check();
+        Time.timeScale = 0;
+
+    }
+    public void On_Resume_button()
+    {
+        //gameAudio.PlayOneShot(buttonClip);
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void On_Restart_button()
+    {
+        //gameAudio.PlayOneShot(buttonClip);
+        Time.timeScale = 1;
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentscene);
+    }
+    public void On_Menu_button()
+    {
+        //gameAudio.PlayOneShot(buttonClip);
+        Time.timeScale = 1;
+        Score_check();
+        SceneManager.LoadScene(0);
+    }
+    public void On_Next_level()
+    {
+        //gameAudio.PlayOneShot(buttonClip);
+        Time.timeScale = 1;
+        Score_check();
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentscene + 1);
+    }
+    private void Score_check()
+    {
+
+        int score = 0;
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        if (score > GameDataNeverDestroy._gameDataNeverDestroy.levels[currentLevel - 1])
+        {
+            GameDataNeverDestroy._gameDataNeverDestroy.levels[currentLevel - 1] = score;
+
+        }
+        //PlayerPrefs.SetInt("currentScore", i);
+    }
+
 
 
     /*Stage1 UI*/
     private void Update()
     {
-        moneyText.text = "Money: " + gameManager.getMoney();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            moneyText.text = "Money: " + gameManager.getMoney();
+        }
     }
     public void OnComfirmRoad()
     {

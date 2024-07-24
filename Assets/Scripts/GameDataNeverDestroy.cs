@@ -10,8 +10,8 @@ public class GameDataNeverDestroy : MonoBehaviour
     public static GameDataNeverDestroy _gameDataNeverDestroy;
 
     public int[] levels = new int[10];
-    private float Music_Volumn;
-    private float game_Volume;
+    public float Music_Volumn;
+    public float game_Volume;
     private GameObject[] enemies;
     private void Awake()
     {

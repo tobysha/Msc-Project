@@ -120,8 +120,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+      - m_Target: {fileID: 8933670668364845222, guid: b85085385e17dd94b971df1a58c6daa4, type: 3}
+        m_TargetAssemblyTypeName: UIControlSystem, Assembly-CSharp
         m_MethodName: On_pause_button
         m_Mode: 1
         m_Arguments:
