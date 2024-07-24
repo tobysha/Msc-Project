@@ -23,13 +23,13 @@ public class RoadCreateLogic : MonoBehaviour
     private GameObject TowerShadow;
     private bool isPlacingTower = false;
 
-    private GameDataNeverDestroy gameData;
+    private GameManager gameData;
     private int originMoney;
 
     private void Start()
     {
         GameObject data = GameObject.Find("GameManager");
-        gameData = data.GetComponent<GameDataNeverDestroy>();
+        gameData = data.GetComponent<GameManager>();
         AdjustTileZPosition();
     }
     private void Update()

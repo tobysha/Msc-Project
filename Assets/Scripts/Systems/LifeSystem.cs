@@ -12,10 +12,10 @@ public class LifeSystem : MonoBehaviour
     public int HP = 100;
     public int value = 70;
 
-    private GameDataNeverDestroy gameDataNeverDestroy;
+    private GameManager gameData;
     void Start()
     {
-        gameDataNeverDestroy = GameObject.Find("GameManager").GetComponent<GameDataNeverDestroy>();
+        gameData = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class LifeSystem : MonoBehaviour
             Destroy( this.gameObject );
             if(this.gameObject.CompareTag("Enemy"))
             {
-                gameDataNeverDestroy.setMoney(gameDataNeverDestroy.getMoney()+value);
+                gameData.setMoney(gameData.getMoney()+value);
             }
         }
     }

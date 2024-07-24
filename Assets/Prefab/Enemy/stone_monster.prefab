@@ -76,7 +76,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719508079462217785}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 351ae114d1adfd24abf82627d21f0709, type: 3}
   m_Name: 
@@ -655,9 +655,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1334137689437367915, guid: 142f97ccf0c9b1d47bd1bf4c02d5f6c5, type: 3}
-  bulletCount: 10
+  bulletCount: 20
   spreadAngle: 360
-  speed: 5
+  speed: 1
 --- !u!114 &3722041442363509295
 MonoBehaviour:
   m_ObjectHideFlags: 0

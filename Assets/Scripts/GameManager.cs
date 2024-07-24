@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     }
     public float GameTime = 200;
 
+    private int Money = 300;
+
     private GameStage CurrentStage = GameStage.RoadCreateStage;
     [SerializeField] private GameObject Stage1_UI;
     [SerializeField] private GameObject Stage2_UI;
@@ -110,5 +112,13 @@ public class GameManager : MonoBehaviour
             winText.SetActive(true);
             Time.timeScale = 0;
         }
+    }
+    public int getMoney()
+    {
+        return Money;
+    }
+    public void setMoney(int money)
+    {
+        Money = money;
     }
 }

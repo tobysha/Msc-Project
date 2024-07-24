@@ -8,7 +8,7 @@ public class StoneFireLogic : MonoBehaviour, IFire
     private GameObject bulletCreate;
     public int bulletCount = 10; // 生成子弹的数量
     public float spreadAngle = 360f; // 子弹扩散的角度
-    public float speed = 5f; // 子弹的速度
+    public float speed = 1f; // 子弹的速度
     private void Start()
     {
         bulletCreate = GameObject.Find("BulletCreate");

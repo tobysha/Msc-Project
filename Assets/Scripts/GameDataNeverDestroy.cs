@@ -9,10 +9,15 @@ public class GameDataNeverDestroy : MonoBehaviour
     // Start is called before the first frame update
     public static GameDataNeverDestroy _gameDataNeverDestroy;
 
-    private int Money = 300;
+    public int[] levels = new int[10];
     private float Music_Volumn;
     private float game_Volume;
     private GameObject[] enemies;
+    private void Awake()
+    {
+        Music_Volumn = 0.5f;
+        game_Volume = 0.5f;
+    }
     void Start()
     {
         if (_gameDataNeverDestroy == null)
@@ -28,16 +33,6 @@ public class GameDataNeverDestroy : MonoBehaviour
         
     }
 
-    /*money manager:
-     * mainly control money system
-     */
-    public int getMoney()
-    {
-        return Money;
-    }
-    public void setMoney(int money)
-    {
-        Money = money;
-    }
+
 
 }
