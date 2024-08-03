@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
     public float GameTime = 200;
 
-    private int Money = 300;
+    public int Money = 300;
 
     private GameStage CurrentStage = GameStage.RoadCreateStage;
     [SerializeField] private GameObject Stage1_UI;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        CheckEnemies();
+        //CheckEnemies();
         GameTimeCountDown();
     }
 

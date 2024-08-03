@@ -30,7 +30,7 @@ public class RoadCreateLogic : MonoBehaviour
     {
         GameObject data = GameObject.Find("GameManager");
         gameData = data.GetComponent<GameManager>();
-        AdjustTileZPosition();
+        //AdjustTileZPosition();
     }
     private void Update()
     {
@@ -90,7 +90,9 @@ public class RoadCreateLogic : MonoBehaviour
         if (isDragging)
         {
             Vector3Int cellPosition = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)); // 获取鼠标当前位置对应的Tilemap坐标
+            cellPosition.z = 0;
             TileBase currentTile = tilemap.GetTile(cellPosition);
+            Debug.Log(cellPosition);
             if (currentTile != null && IsGroundTile(cellPosition) && gameData.getMoney() > RoadCost) // 确保该位置在Tilemap范围内
             {
                 gameData.setMoney(gameData.getMoney()-RoadCost);
@@ -159,6 +161,7 @@ public class RoadCreateLogic : MonoBehaviour
             }
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);
+            cellPos.z = 0;
             Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cellPos);
 
             if (TowerShadow != null)
