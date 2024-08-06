@@ -8,14 +8,22 @@ public class LifeSystem : MonoBehaviour
     public Slider HPslider;
     
     // Start is called before the first frame update
-    public int MaxHP = 100;
-    public int HP = 100;
-    public int value = 70;
+    private int MaxHP;
+    private int HP;
+    private int value;
 
     private GameManager gameData;
     void Start()
     {
+        SelfDataini();
         gameData = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+    void SelfDataini()
+    {
+        ObjectsData data = this.GetComponent<ObjectsData>();
+        HP = data.HP;
+        MaxHP = data.MaxHP;
+        value = data.value;
     }
 
     // Update is called once per frame

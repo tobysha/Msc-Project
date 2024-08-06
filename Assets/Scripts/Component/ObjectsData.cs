@@ -6,8 +6,10 @@ public class ObjectsData : MonoBehaviour
 {
     public string Name = "Monster1";
     public int HP = 100;
-    public int speed = 2;
+    public int MaxHP = 100;
+    public float speed = 2;
     public int atk = 3;
+    public int value = 70;
     [SerializeField] private GameObject atkRange;
 
     [SerializeField] private float CoolDowntime = 3f;

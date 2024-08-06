@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -26,9 +27,12 @@ public class Test : MonoBehaviour
     public TileBase RoadTile;
     public TileBase groundTile;
     public TileBase stoneTile;
-    public GameObject monsterPrefab;
+    public GameObject[] monsterPrefab;
+
+    private int MoneyCal = 0;
     void Start()
     {
+        MoneyCal = 0;
         CreateWFC();
     }
     public void CreateWFC()
@@ -76,16 +80,19 @@ public class Test : MonoBehaviour
 
     public void cleanRoads()
     {
+        int count = 0;
         for (int x = 0; x < outputTilemap.size.x; x++)
         {
             for (int y = 0; y < outputTilemap.size.y; y++)
             {
                 if (outputTilemap.GetTile(new Vector3Int(x, y, 0)) == RoadTile)
                 {
+                    count++;
                     outputTilemap.SetTile(new Vector3Int(x, y, 0), groundTile);
                 }
             }
         }
+        MoneyCal += count * 10;
     }
 
     public void GenerateMonsters()
@@ -96,10 +103,9 @@ public class Test : MonoBehaviour
             {
                 if (outputTilemap.GetTile(new Vector3Int(x, y, 0)) == stoneTile)
                 {
-                    float halfWidth = outputTilemap.cellSize.x / 2;
                     float halfHeight = outputTilemap.cellSize.y / 2;
                     Vector3 cellCenter = outputTilemap.CellToWorld(new Vector3Int(x, y, 0)) + new Vector3(0, halfHeight, 0);
-                    Instantiate(monsterPrefab, cellCenter, Quaternion.identity);
+                    Instantiate(monsterPrefab[UnityEngine.Random.Range(0, monsterPrefab.Length)], cellCenter, Quaternion.identity);
                 }
             }
         }

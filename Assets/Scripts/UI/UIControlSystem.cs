@@ -205,13 +205,16 @@ public class UIControlSystem : MonoBehaviour
     }
     public void OnFinishButton()
     {
+        rcl.setDebugMode(false);
+        rcl.SaveOriginalState();
         gameManager.GameStageChange(GameManager.GameStage.GamingStage);
+        Time.timeScale = 0;
     }
 
 
     /*Stage2 UI*/
-    public void OnCreateTower1()
+    public void OnCreateTower(GameObject gameObject)
     {
-        rcl.setPlacingTowerState(true);
+        rcl.setPlacingTowerState(true, gameObject);
     }
 }

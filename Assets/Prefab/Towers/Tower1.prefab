@@ -534,7 +534,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.32, y: 1.8, z: 0}
-  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7343653343079300666}
@@ -580,8 +580,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1218377189
-  m_SortingLayer: 3
+  m_SortingLayerID: -167838001
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0a0b70cfd52e574419e377163923b946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -649,9 +649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 4252243348985088800}
-  MaxHP: 100
-  HP: 100
-  value: 100
 --- !u!114 &-8821008987214969426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,8 +663,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Tower
   HP: 100
-  speed: 2
+  MaxHP: 100
+  speed: 0.3
   atk: 3
+  value: 100
   atkRange: {fileID: 5395782683601510031}
   CoolDowntime: 3
 --- !u!50 &7325351546110601800

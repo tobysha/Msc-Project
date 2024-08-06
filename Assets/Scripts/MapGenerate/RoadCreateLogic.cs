@@ -92,7 +92,7 @@ public class RoadCreateLogic : MonoBehaviour
             Vector3Int cellPosition = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)); // 获取鼠标当前位置对应的Tilemap坐标
             cellPosition.z = 0;
             TileBase currentTile = tilemap.GetTile(cellPosition);
-            Debug.Log(cellPosition);
+            //Debug.Log(cellPosition);
             if (currentTile != null && IsGroundTile(cellPosition) && gameData.getMoney() > RoadCost) // 确保该位置在Tilemap范围内
             {
                 gameData.setMoney(gameData.getMoney()-RoadCost);
@@ -137,8 +137,10 @@ public class RoadCreateLogic : MonoBehaviour
         return results.Count > 0;
     }
 
-    public void setPlacingTowerState(bool b)
+    public void setPlacingTowerState(bool b, GameObject currentTower)
     {
+        TowerPrefab = currentTower;
+        TowerShadow = null;
         isPlacingTower = b;
     }
 

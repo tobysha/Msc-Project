@@ -17,7 +17,7 @@ public class ObjectStatusUI : MonoBehaviour
     GameObject lastObj;
     private void Start()
     {
-        lastObj = gameObject;
+        lastObj = this.gameObject;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
@@ -37,16 +37,19 @@ public class ObjectStatusUI : MonoBehaviour
                 {
                     currentobj.GetComponent<ObjectsData>().ATKrange_visable(true);
                     ShowStatus(currentobj);
-                    if(lastObj.CompareTag("Enemy") || lastObj.CompareTag("Tower"))
+                    if(lastObj != null)
                     {
-                        lastObj.GetComponent<ObjectsData>().ATKrange_visable(false);
+                        if ((lastObj.CompareTag("Enemy") || lastObj.CompareTag("Tower")))
+                        {
+                            lastObj.GetComponent<ObjectsData>().ATKrange_visable(false);
+                        }
                     }
                     lastObj = currentobj;
                 }
             }
             else
             {
-                if (lastObj != this.gameObject)
+                if (lastObj != this.gameObject && lastObj != null)
                 {
                     lastObj.GetComponent<ObjectsData>().ATKrange_visable(false);
                 }
