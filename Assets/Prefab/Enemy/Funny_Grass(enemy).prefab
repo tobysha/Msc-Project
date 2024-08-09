@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Funny grass
-  HP: 100
-  MaxHP: 100
+  HP: 300
+  MaxHP: 300
   speed: 2
   atk: 3
   value: 70
@@ -838,9 +838,9 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.20013931, y: 4.3854647}
-  - {x: -7.3297186, y: 0.28410876}
-  - {x: -0.28066468, y: -3.7282076}
-  - {x: 6.879923, y: 0.3604462}
+  - {x: -9.23209, y: -0.8386024}
+  - {x: -0.43659723, y: -5.848884}
+  - {x: 8.439245, y: -0.7310786}
   - {x: -0.17468703, y: 4.3479824}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}

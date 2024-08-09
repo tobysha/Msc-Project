@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff98295ee51125e488b9456f8b52350f
+guid: a6b7a5a5248f6cf45a241331b9743f69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2027595699768001626
-    second: radar_0
+      213: -3084395802447352074
+    second: RadarBullet1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 251
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: radar_0
+      name: RadarBullet1_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 16
-        width: 182
-        height: 211
+        x: 21
+        y: 48
+        width: 218
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6abf73724788cd3e0800000000000000
-      internalID: -2027595699768001626
+      spriteID: 6fe6b680c560235d0800000000000000
+      internalID: -3084395802447352074
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      radar_0: -2027595699768001626
+      RadarBullet1_0: -3084395802447352074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

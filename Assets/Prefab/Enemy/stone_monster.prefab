@@ -610,9 +610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 0}
-  MaxHP: 100
-  HP: 100
-  value: 70
 --- !u!114 &6236747613020476228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,9 +623,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Weird stone
-  HP: 100
+  HP: 250
+  MaxHP: 250
   speed: 2
   atk: 3
+  value: 70
   atkRange: {fileID: 8472735958402650234}
   CoolDowntime: 3
 --- !u!114 &533075642410796932

@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 1155820866980919542}
   - component: {fileID: 2476725311478120135}
   m_Layer: 0
-  m_Name: Tower1
+  m_Name: Archer
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,8 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Tower
-  HP: 100
-  MaxHP: 100
+  HP: 200
+  MaxHP: 200
   speed: 0.3
   atk: 3
   value: 100

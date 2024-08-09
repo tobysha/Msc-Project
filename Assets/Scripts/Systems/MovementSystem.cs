@@ -12,8 +12,10 @@ public class MovementSystem : MonoBehaviour
 
     private bool movingForward = true; // Direction flag
     private int currentWaypointIndex = 0; // Current waypoint index
+    private ObjectsData objData;
     void Start()
     {
+        objData = GetComponent<ObjectsData>();
         //velocity = new VelocityComp(1, 0);
         //transform.position = tilemap.CellToWorld(waypoints[currentWaypointIndex]) + new Vector3(0.5f, 0.5f, 0);
     }

@@ -10,10 +10,10 @@ public class DamageSystem : MonoBehaviour
         ENEMYBULLET = 1
     }
     public int damage;
+    private ObjectsData obd;
     bulletType bt;
     private void Start()
     {
-        
         if (this.CompareTag("EnemyBullet"))
         {
             bt = bulletType.ENEMYBULLET;

@@ -5715,7 +5715,9 @@ MonoBehaviour:
   RoadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
   groundTile: {fileID: 11400000, guid: 490f9c63bc337c4448d8bcad9ff6322b, type: 2}
   stoneTile: {fileID: 11400000, guid: 2fa41331c5855e24d8584ffcbb68d6f7, type: 2}
-  monsterPrefab: []
+  monsterPrefab:
+  - {fileID: 61857192506856339, guid: 7a2ea2332594f0b4a9dc875deef64781, type: 3}
+  - {fileID: 6221698800688658837, guid: 750948fb7a931e745a9e72270565e82d, type: 3}
 --- !u!4 &1646975986
 Transform:
   m_ObjectHideFlags: 0

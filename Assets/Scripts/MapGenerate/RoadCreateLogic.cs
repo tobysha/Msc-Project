@@ -146,7 +146,7 @@ public class RoadCreateLogic : MonoBehaviour
 
     private void TowerSpawner()
     {
-        int towervalue = TowerPrefab.GetComponent<LifeSystem>().getValue();
+        int towervalue = TowerPrefab.GetComponent<ObjectsData>().value;
         if (isPlacingTower && gameData.getMoney() > towervalue)
         {
             if (TowerShadow == null)
@@ -180,7 +180,6 @@ public class RoadCreateLogic : MonoBehaviour
                     isPlacingTower = false;
                     GameObject tower = Instantiate(TowerPrefab, cellCenterPos, Quaternion.identity);
                     MovementSystem towermovement = tower.GetComponent<MovementSystem>();
-                    //int towervalue = tower.GetComponent<LifeSystem>().getValue();
                     if (towermovement != null)
                     {
                         towermovement.InitializePath(tilemap, path);

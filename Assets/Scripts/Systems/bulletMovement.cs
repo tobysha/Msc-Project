@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class bulletMovement : MonoBehaviour
 {
@@ -30,6 +31,13 @@ public class bulletMovement : MonoBehaviour
             // 设置对象的旋转角度
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        this.gameObject.transform.position += gameObject.transform.right * Time.deltaTime * speed;
+        //this.gameObject.transform.position += gameObject.transform.right * Time.deltaTime * speed;
+        //Vector3 direct = transform.rotation * Vector3.up;
+        //GetComponent<Rigidbody2D>().velocity = direct * speed;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Vector2 moveDirection = transform.right;
+
+        rb.velocity = moveDirection * speed;
     }
 }

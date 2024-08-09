@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff98295ee51125e488b9456f8b52350f
+guid: ef07b1d00e5234a4fb15dfb193a216a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2027595699768001626
-    second: radar_0
+      213: -4637803251820006980
+    second: Cactus_bottom_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: radar_0
+      name: Cactus_bottom_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 16
-        width: 182
-        height: 211
+        x: 71
+        y: 41
+        width: 93
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6abf73724788cd3e0800000000000000
-      internalID: -2027595699768001626
+      spriteID: cb1fd1db38633afb0800000000000000
+      internalID: -4637803251820006980
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      radar_0: -2027595699768001626
+      Cactus_bottom_0: -4637803251820006980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

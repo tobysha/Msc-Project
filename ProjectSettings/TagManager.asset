@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Towerbullet
   - EnemyBullet
+  - StableTowerbullet
   layers:
   - Default
   - TransparentFX

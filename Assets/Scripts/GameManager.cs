@@ -39,14 +39,17 @@ public class GameManager : MonoBehaviour
 
     void GameTimeCountDown()
     {
-        GameTime -= Time.deltaTime;
-        if(GameTime <= 0)
+        if(CurrentStage != 0)
         {
-            gameoverText.SetActive(true);
-        }
-        else if(GameTime <= 30f && GameTime > 0 )
-        {
-            CurrentStage = GameStage.crazyStage;
+            GameTime -= Time.deltaTime;
+            if (GameTime <= 0)
+            {
+                gameoverText.SetActive(true);
+            }
+            else if (GameTime <= 30f && GameTime > 0)
+            {
+                CurrentStage = GameStage.crazyStage;
+            }
         }
     }
 
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
                 break;
             case 1:
                 
-                Stage1_UI.SetActive(false);
+                Stage1_UI.SetActive(true);
                 Stage2_UI.SetActive(true);
                 Stage3_UI.SetActive(false);
                 break;

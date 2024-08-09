@@ -187,24 +187,28 @@ public class UIControlSystem : MonoBehaviour
     }
     public void OnComfirmRoad()
     {
+        Time.timeScale = 1f;
         rcl.setDebugMode(false);
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(false);
     }
     public void OnDenyRoad()
     {
+        Time.timeScale = 1f;
         rcl.setDebugMode(false);
         rcl.ResetTilemap();
         tilemapComfirmButton.SetActive(false);
     }
     public void OnStartGame()
     {
+        Time.timeScale = 0.1f;
         rcl.setDebugMode(true);
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(true);
     }
     public void OnFinishButton()
     {
+        Time.timeScale = 1f;
         rcl.setDebugMode(false);
         rcl.SaveOriginalState();
         gameManager.GameStageChange(GameManager.GameStage.GamingStage);

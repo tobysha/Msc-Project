@@ -79,21 +79,6 @@ public class FireSystem : MonoBehaviour
 
     }
 
-    //public void CreateFire(Transform tf)
-    //{
-    //    if (countdown <= 0f)
-    //    {
-    //        Vector3 direction = (tf.position - transform.position).normalized;
-    //       // Quaternion rotation = Quaternion.LookRotation(direction);
-    //        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-    //        // 创建旋转四元数，只绕 Z 轴旋转
-    //        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    //        GameObject go = Instantiate(bullet, this.transform.position, rotation, bulletCreate.gameObject.transform);
-    //        go.GetComponent<bulletMovement>().setTarget(tf);
-    //        countdown = objectsData.GetCoolDowntime();
-    //    }
-        
-    //}
     public void SetisShadow(bool s)
     {
         isShadow = s;
