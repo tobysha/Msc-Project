@@ -32,7 +32,7 @@ public class LifeSystem : MonoBehaviour
         //HPslider.value = (float)(HP / MaxHP);
         if( HP <= 0 )
         {
-            Destroy( this.gameObject );
+            gameObject.SetActive( false );
             if(this.gameObject.CompareTag("Enemy"))
             {
                 gameData.setMoney(gameData.getMoney()+value);

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectStatusUI : MonoBehaviour
 {
@@ -18,18 +20,20 @@ public class ObjectStatusUI : MonoBehaviour
     private void Start()
     {
         lastObj = this.gameObject;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(SceneManager.GetActiveScene().buildIndex != 0)       //get Gamemanager if it is not game menu
+        {
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
     }
     void Update()
     {
         // 检测鼠标左键点击
-        if (Input.GetMouseButtonDown(0) && (gameManager.GetcurrentStage() == GameManager.GameStage.GamingStage || gameManager.GetcurrentStage() == GameManager.GameStage.crazyStage))
+        if (SceneManager.GetActiveScene().buildIndex != 0 && Input.GetMouseButtonDown(0) && (gameManager.GetcurrentStage() == GameManager.GameStage.GamingStage || gameManager.GetcurrentStage() == GameManager.GameStage.crazyStage))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // 使用2D射线检测
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
             // 检测射线是否击中物体
-            //Debug.Log("hahah");
             if (hit.collider != null)
             {
                 GameObject currentobj = hit.collider.gameObject;
@@ -61,8 +65,7 @@ public class ObjectStatusUI : MonoBehaviour
     void ShowStatus(GameObject obj)
     {
         statusText.SetActive(true);
-        ObjectsData objectdata = obj.GetComponent<ObjectsData>();
-        // 在这里获取游戏物体的状态信息，并更新UI面板的文本内容
+        ObjectsData objectdata = obj.GetComponent<ObjectsData>();// get gameobject and show states
         NameText.text = objectdata.Name;
         HPText.text = "HP: " + objectdata.HP.ToString();
         ATKText.text = "ATK: " + objectdata.atk.ToString();

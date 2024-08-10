@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1103980314}
+    - target: {fileID: 5084741219009394869, guid: 92953dfa02d1cb84abeb9546114a77ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5680668937522976232, guid: 92953dfa02d1cb84abeb9546114a77ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -245,7 +249,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1103980314}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2310064431295928932, guid: 92953dfa02d1cb84abeb9546114a77ec, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3801421791562728457, guid: 92953dfa02d1cb84abeb9546114a77ec, type: 3}
       insertIndex: 0
@@ -1502,6 +1507,7 @@ GameObject:
   - component: {fileID: 291452509}
   - component: {fileID: 291452508}
   - component: {fileID: 291452507}
+  - component: {fileID: 291452510}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1583,6 +1589,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291452510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291452506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3469016b852a61f4d9012a756f6673a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  zoomSpeed: 2
+  minZoom: 1
+  boundMinX: 0
+  boundMinY: 0
+  boundMaxX: 0
+  boundMaxY: 0
 --- !u!114 &341160268 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4485854398902743259, guid: 18e9e6ea6c6fbf14e8e320aaaef18e1a, type: 3}

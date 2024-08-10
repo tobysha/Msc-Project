@@ -26,11 +26,11 @@ public class GametimeCountDown : MonoBehaviour
             int min = (int)totaltime / 60;
             int seconds = (int)totaltime % 60;
             //Debug.Log(seconds);
-            timeText.text = "Time: " + min.ToString() + ":" + seconds.ToString();
+            timeText.text =  min.ToString() + ":" + seconds.ToString();
         }
         else
         {
-            timeText.text = "Time:0:00";
+            timeText.text = "0:00";
         }
         
     }

@@ -27,13 +27,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies);
+        //Debug.Log(enemies);
         initialGameStage();
     }
 
     void Update()
     {
-        //CheckEnemies();
+        CheckEnemies();
         GameTimeCountDown();
     }
 
@@ -102,14 +102,15 @@ public class GameManager : MonoBehaviour
     {
         // 检查所有敌人是否都被消灭
         bool allEnemiesDestroyed = true;
-        foreach (GameObject enemy in enemies)
+        foreach(GameObject enemy in enemies)
         {
-            if (enemy != null)
+            if (enemy.activeSelf)
             {
                 allEnemiesDestroyed = false;
                 break;
             }
         }
+        
         if (allEnemiesDestroyed)
         {
             winText.SetActive(true);

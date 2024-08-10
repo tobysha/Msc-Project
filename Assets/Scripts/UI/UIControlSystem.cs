@@ -30,6 +30,9 @@ public class UIControlSystem : MonoBehaviour
     public AudioSource gameAudio;
     public Slider Music_slider;
     public Slider game_sound_slider;
+
+    [SerializeField] private GameObject[] ToturialTexts;
+    int currentText = 0;
     public void Start()
     {
         CurGameScene = SceneManager.GetActiveScene().buildIndex;
@@ -125,6 +128,8 @@ public class UIControlSystem : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+
     /*----------------------------------Gaming UI-----------------*/
     public void On_pause_button()
     {
@@ -175,6 +180,27 @@ public class UIControlSystem : MonoBehaviour
         //PlayerPrefs.SetInt("currentScore", i);
     }
 
+    /*-----------------------------------------tutorial Text-------------------------------*/
+    public void Tutorial1_Next_page()
+    {
+        if(ToturialTexts!=null)
+        {
+            if(currentText >= 0)
+            {
+                ToturialTexts[currentText].SetActive(false);
+            }
+            if(currentText+1 < ToturialTexts.Length)
+            {
+                currentText++;
+                ToturialTexts[currentText].SetActive(true);
+            }
+        }
+    }
+    public void Tutorial_camera_text(GameObject go)
+    {
+        go.SetActive(false);
+    }
+
 
 
     /*Stage1 UI*/
@@ -182,7 +208,7 @@ public class UIControlSystem : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            moneyText.text = "Money: " + gameManager.getMoney();
+            moneyText.text =  gameManager.getMoney().ToString();
         }
     }
     public void OnComfirmRoad()
@@ -221,4 +247,6 @@ public class UIControlSystem : MonoBehaviour
     {
         rcl.setPlacingTowerState(true, gameObject);
     }
+
+    
 }

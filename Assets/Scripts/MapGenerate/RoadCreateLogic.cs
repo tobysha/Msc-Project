@@ -147,7 +147,7 @@ public class RoadCreateLogic : MonoBehaviour
     private void TowerSpawner()
     {
         int towervalue = TowerPrefab.GetComponent<ObjectsData>().value;
-        if (isPlacingTower && gameData.getMoney() > towervalue)
+        if (isPlacingTower && gameData.getMoney() >= towervalue)
         {
             if (TowerShadow == null)
             {
