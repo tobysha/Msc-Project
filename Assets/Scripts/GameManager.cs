@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject Stage3_UI;
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject gameoverText;
+    [SerializeField] private GameObject loseText;
 
     private GameObject[] enemies;
     void Start()
@@ -49,6 +50,10 @@ public class GameManager : MonoBehaviour
             else if (GameTime <= 30f && GameTime > 0)
             {
                 CurrentStage = GameStage.crazyStage;
+            }
+            if(GameTime <= 0)
+            {
+                loseText.SetActive(true);
             }
         }
     }

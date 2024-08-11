@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-guid: 48271d0e00649834ab302cd0b7e9103c
-AssetOrigin:
-  serializedVersion: 1
-  productId: 183472
-  packageName: Isometric Tower defense pack
-  packageVersion: 1.0
-  assetPath: Assets/Update/Isometric Tower Defense Pack/Sprites/Towers/Archer/arrow.png
-  uploadId: 495203
+guid: 2c0eda0d508543e41a6aafbd7b5ddbe8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -120099537277695560
+    second: Banana_monster4_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -50,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +68,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -112,18 +108,40 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Banana_monster4_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 42
+        width: 134
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b9cfde6b12555ef0800000000000000
+      internalID: -120099537277695560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Banana_monster4_0: -120099537277695560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

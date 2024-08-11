@@ -40,19 +40,6 @@ public class RoadCreateLogic : MonoBehaviour
         }
         TowerSpawner();
     }
-    void AdjustTileZPosition()
-    {
-        /*  始终让上面的图层压着下面的图层  */
-        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
-        {
-            if (tilemap.HasTile(pos))
-            {
-                TileBase tile = tilemap.GetTile(pos);
-                Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-                tilemap.SetTransformMatrix(localPlace, Matrix4x4.TRS(new Vector3(0, 0, -pos.y * 0.1f), Quaternion.identity, Vector3.one));
-            }
-        }
-    }
     private bool IsGroundTile(Vector3Int position)
     {
         bool isground = true;
@@ -147,7 +134,7 @@ public class RoadCreateLogic : MonoBehaviour
     private void TowerSpawner()
     {
         int towervalue = TowerPrefab.GetComponent<ObjectsData>().value;
-        if (isPlacingTower && gameData.getMoney() >= towervalue)
+        if (isPlacingTower && gameData.getMoney() >= towervalue && debugMode == false)
         {
             if (TowerShadow == null)
             {

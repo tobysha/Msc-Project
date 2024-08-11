@@ -227,7 +227,10 @@ public class UIControlSystem : MonoBehaviour
     }
     public void OnStartGame()
     {
-        Time.timeScale = 0.1f;
+        if(gameManager.GetcurrentStage() == GameManager.GameStage.GamingStage)
+        {
+            Time.timeScale = 0.1f;
+        }
         rcl.setDebugMode(true);
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(true);
