@@ -7,17 +7,20 @@ public class ObjectsData : MonoBehaviour
     public string Name = "Monster1";
     public int HP = 100;
     public int MaxHP = 100;
-    public float speed = 2;
+    public float speed = 2f;
     public int atk = 3;
     public int value = 70;
     [SerializeField] private GameObject atkRange;
 
-    [SerializeField] private float CoolDowntime = 3f;
+    private float CoolDowntime = 3f;
     public void ATKrange_visable(bool b)
     {
         atkRange.SetActive(b);
     }
-
+    private void Start()
+    {
+        CoolDowntime = 1 / speed;
+    }
     //fire Logic
     public float GetCoolDowntime()
     {

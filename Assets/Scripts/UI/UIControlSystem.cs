@@ -179,6 +179,9 @@ public class UIControlSystem : MonoBehaviour
         }
         //PlayerPrefs.SetInt("currentScore", i);
     }
+    private void fast_forward_button() {
+        Time.timeScale = 4;
+    }
 
     /*-----------------------------------------tutorial Text-------------------------------*/
     public void Tutorial1_Next_page()

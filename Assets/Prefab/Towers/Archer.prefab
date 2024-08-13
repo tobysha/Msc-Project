@@ -622,7 +622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7222043132704073015, guid: 0c2fd4d86765583499ee9011fab451f6, type: 3}
-  bulletCreate: {fileID: 0}
 --- !u!114 &5313459238265880499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,7 +664,7 @@ MonoBehaviour:
   HP: 200
   MaxHP: 200
   speed: 0.3
-  atk: 3
+  atk: 20
   value: 100
   atkRange: {fileID: 5395782683601510031}
   CoolDowntime: 3

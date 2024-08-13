@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static GameDataNeverDestroy;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
         GamingStage,
         crazyStage
     }
+    public bool DebugMode = true;
+
     public float GameTime = 200;
 
     public int Money = 300;
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameoverText;
     [SerializeField] private GameObject loseText;
 
+    private Test test;
     private GameObject[] enemies;
     void Start()
     {
@@ -36,6 +40,19 @@ public class GameManager : MonoBehaviour
     {
         CheckEnemies();
         GameTimeCountDown();
+    }
+    public void iniGameMap()
+    {
+        if(SceneManager.GetActiveScene().buildIndex!=0 && SceneManager.GetActiveScene().buildIndex != 1)// in case current scene is not toturial level or menu
+        {
+            if(DebugMode)
+            {
+                test = gameObject.GetComponent<Test>();
+                test.CreateTilemap();
+                test.cleanRoads();
+                test.GenerateMonsters();
+            }
+        }
     }
 
     void GameTimeCountDown()

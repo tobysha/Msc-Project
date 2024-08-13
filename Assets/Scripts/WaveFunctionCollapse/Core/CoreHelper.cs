@@ -75,13 +75,16 @@ namespace WaveFunctionCollapse
         public float CalculateEntropy(Vector2Int position, OutputGrid outputGrid)
         {
             float sum = 0;
+            float sum1 = 0;
             foreach (var possibleIndex in outputGrid.GetPossibleValueForPossition(position))
             {
                 totalFrequency += patternManager.GetPatternFrequency(possibleIndex);
                 sum += patternManager.GetPatternFrequencyLog2(possibleIndex);
+                sum1 = patternManager.GetPatternFrequency(possibleIndex) * Mathf.Log(patternManager.GetPatternFrequency(possibleIndex), 2);
             }
             totalFrequencyLog = Mathf.Log(totalFrequency, 2);
-            return totalFrequencyLog - (sum / totalFrequency);
+            //return totalFrequencyLog - (sum / totalFrequency);
+            return -sum1;
         }
 
         public List<VectorPair> CheckIfNeighboursAreCollapsed(VectorPair pairToCheck, OutputGrid outputgrid)

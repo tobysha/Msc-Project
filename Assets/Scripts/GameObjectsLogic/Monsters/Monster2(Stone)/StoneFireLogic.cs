@@ -19,7 +19,7 @@ public class StoneFireLogic : MonoBehaviour, IFire
         {
             float angle = i * spreadAngle / bulletCount;
             Vector3 direction = Quaternion.Euler(0, 0, angle) * Vector3.up;
-            GameObject bullet1 = Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject bullet1 = Instantiate(bullet, transform.position, Quaternion.identity,gameObject.transform);
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * speed;
         }
 

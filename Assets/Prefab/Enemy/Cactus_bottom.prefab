@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Cautus
-  HP: 200
+  HP: 100
   MaxHP: 200
   speed: 2
   atk: 4

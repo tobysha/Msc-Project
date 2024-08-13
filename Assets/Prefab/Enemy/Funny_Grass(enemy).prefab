@@ -430,10 +430,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Funny grass
-  HP: 300
-  MaxHP: 300
-  speed: 2
-  atk: 3
+  HP: 100
+  MaxHP: 100
+  speed: 0.5
+  atk: 8
   value: 70
   atkRange: {fileID: 3075391707425538319}
   CoolDowntime: 3
@@ -462,7 +462,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7615151922301938543, guid: 31767da6609828f4892a8b1f790629da, type: 3}
-  bulletCreate: {fileID: 0}
 --- !u!50 &3862113035865763748
 Rigidbody2D:
   serializedVersion: 4
