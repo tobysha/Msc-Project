@@ -509,8 +509,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1303735333067873508}
   - component: {fileID: 1459585662092284560}
-  - component: {fileID: 43681072974169791}
   - component: {fileID: 553816292104180465}
+  - component: {fileID: 8208365948997877544}
   - component: {fileID: 5313459238265880499}
   - component: {fileID: 1576806462297380055}
   - component: {fileID: -8821008987214969426}
@@ -594,21 +594,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &43681072974169791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7820243548913518498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9023fee10515e79489dad3ce2f3fa032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  waypoints: []
-  speed: 1
 --- !u!114 &553816292104180465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +607,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7222043132704073015, guid: 0c2fd4d86765583499ee9011fab451f6, type: 3}
+--- !u!114 &8208365948997877544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820243548913518498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7d4d5e3f48f054c9098e57aa950c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
+  moveSpeed: 1
 --- !u!114 &5313459238265880499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,8 +665,8 @@ MonoBehaviour:
   speed: 0.3
   atk: 20
   value: 100
+  Difficulty: 0
   atkRange: {fileID: 5395782683601510031}
-  CoolDowntime: 3
 --- !u!50 &7325351546110601800
 Rigidbody2D:
   serializedVersion: 4

@@ -9,9 +9,10 @@ public class StoneFireLogic : MonoBehaviour, IFire
     public int bulletCount = 10; // 生成子弹的数量
     public float spreadAngle = 360f; // 子弹扩散的角度
     public float speed = 1f; // 子弹的速度
+    private ObjectsData ObjectsData;
     private void Start()
     {
-        bulletCreate = GameObject.Find("BulletCreate");
+        ObjectsData = GetComponent<ObjectsData>();
     }
     public void OnFire(Transform target)
     {
@@ -19,8 +20,9 @@ public class StoneFireLogic : MonoBehaviour, IFire
         {
             float angle = i * spreadAngle / bulletCount;
             Vector3 direction = Quaternion.Euler(0, 0, angle) * Vector3.up;
-            GameObject bullet1 = Instantiate(bullet, transform.position, Quaternion.identity,gameObject.transform);
+            GameObject bullet1 = Instantiate(bullet, transform.position, Quaternion.identity);
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * speed;
+            bullet1.GetComponent<DamageSystem>().damage = ObjectsData.atk;
         }
 
     }

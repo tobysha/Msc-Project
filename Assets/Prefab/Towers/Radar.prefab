@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 7795803765200587248}
   - component: {fileID: 6361283081982294583}
   - component: {fileID: 2273780861799607597}
-  - component: {fileID: 8254732228947488606}
+  - component: {fileID: -1465628138104612063}
   - component: {fileID: 7043104286498830295}
   - component: {fileID: 6907194267968242925}
   - component: {fileID: 5792263110871396552}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 7496727732090137695}
---- !u!114 &8254732228947488606
+--- !u!114 &-1465628138104612063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,12 +354,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3408725452441362716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9023fee10515e79489dad3ce2f3fa032, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b7d4d5e3f48f054c9098e57aa950c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  waypoints: []
-  speed: 1
+  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
+  moveSpeed: 1
 --- !u!114 &7043104286498830295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,8 +402,8 @@ MonoBehaviour:
   speed: 1
   atk: 7
   value: 70
+  Difficulty: 0
   atkRange: {fileID: 0}
-  CoolDowntime: 5
 --- !u!114 &6056450402358122509
 MonoBehaviour:
   m_ObjectHideFlags: 0

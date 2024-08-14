@@ -42,7 +42,7 @@ public class UIControlSystem : MonoBehaviour
             GameObject data = GameObject.Find("GameManager");
             gameManager = data.GetComponent<GameManager>();
         }
-        music_volume_setting();
+        //music_volume_setting();
     }
     void music_volume_setting()
     {
@@ -90,7 +90,7 @@ public class UIControlSystem : MonoBehaviour
         settingmenu.SetActive(true);
         //gameAudio.PlayOneShot(buttonClip);
     }
-    public void On_selection_button(int j)
+    public void On_selection_button(int scene)
     {
         /*currentButton = EventSystem.current.currentSelectedGameObject;
         string s = currentButton.GetComponent<TextMeshPro>().text;
@@ -99,7 +99,7 @@ public class UIControlSystem : MonoBehaviour
         //gameAudio.PlayOneShot(buttonClip);
         try
         {
-            SceneManager.LoadScene(j);
+            SceneManager.LoadScene(scene);
         }
         catch
         {
@@ -161,10 +161,16 @@ public class UIControlSystem : MonoBehaviour
     }
     public void On_Next_level()
     {
-        //gameAudio.PlayOneShot(buttonClip);
         Time.timeScale = 1;
         Score_check();
         int currentscene = SceneManager.GetActiveScene().buildIndex;
+        if (SceneManager.GetActiveScene().buildIndex==2)
+        {
+            GameDataNeverDestroy._gameDataNeverDestroy.currentlevel += 1;
+            SceneManager.LoadScene(currentscene);
+            return;
+        }
+        //gameAudio.PlayOneShot(buttonClip);
         SceneManager.LoadScene(currentscene + 1);
     }
     private void Score_check()
@@ -179,8 +185,8 @@ public class UIControlSystem : MonoBehaviour
         }
         //PlayerPrefs.SetInt("currentScore", i);
     }
-    private void fast_forward_button() {
-        Time.timeScale = 4;
+    public void fast_forward_button() {
+        Time.timeScale = 2;
     }
 
     /*-----------------------------------------tutorial Text-------------------------------*/

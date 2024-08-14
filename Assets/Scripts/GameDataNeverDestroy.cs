@@ -13,6 +13,7 @@ public class GameDataNeverDestroy : MonoBehaviour
     public float Music_Volumn;
     public float game_Volume;
     private GameObject[] enemies;
+    public int currentlevel;
     private void Awake()
     {
         Music_Volumn = 0.5f;
@@ -27,10 +28,9 @@ public class GameDataNeverDestroy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeCurrentLevel(int i)
     {
-        
+        currentlevel = i;
     }
 
 

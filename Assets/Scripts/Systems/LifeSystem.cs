@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LifeSystem : MonoBehaviour
 {
     public Slider HPslider;
+    [SerializeField] private GameObject[] objectsNeedToDestroy;
     
     // Start is called before the first frame update
     private int MaxHP;
@@ -37,6 +38,14 @@ public class LifeSystem : MonoBehaviour
             {
                 gameData.setMoney(gameData.getMoney()+value);
             }
+            foreach( GameObject obj in objectsNeedToDestroy )
+            {
+                obj.SetActive( false );
+            }
+        }
+        if(HP > MaxHP )
+        {
+            HP = MaxHP;
         }
     }
     public void setHP(int i)

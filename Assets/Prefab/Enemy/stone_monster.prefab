@@ -625,11 +625,11 @@ MonoBehaviour:
   Name: Weird stone
   HP: 80
   MaxHP: 80
-  speed: 2
+  speed: 0.33
   atk: 4
   value: 70
+  Difficulty: 0
   atkRange: {fileID: 8472735958402650234}
-  CoolDowntime: 3
 --- !u!114 &533075642410796932
 MonoBehaviour:
   m_ObjectHideFlags: 0

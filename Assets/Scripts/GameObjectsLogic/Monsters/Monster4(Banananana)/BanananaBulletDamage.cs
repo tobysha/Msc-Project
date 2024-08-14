@@ -11,6 +11,7 @@ public class BanananaBulletDamage : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bulletMovement bulletmovement;
     private GameObject currentObject;
+    public int damage;
     private void Start()
     {
         currentObject = this.gameObject;
@@ -22,10 +23,9 @@ public class BanananaBulletDamage : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Tower"))
         {
-            ObjectsData data = GetComponentInParent<ObjectsData>();
             if(GetNextTarget(collision.gameObject)!=null && bounceTime > 0 && currentObject!= collision.gameObject)
             {
-                collision.GetComponent<LifeSystem>().setHP(-data.atk);
+                collision.GetComponent<LifeSystem>().setHP(-damage);
                 currentObject = collision.gameObject;
                 spriteRenderer.sprite = secondPNG;
                 bounceTime -= 1;

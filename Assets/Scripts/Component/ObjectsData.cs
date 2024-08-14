@@ -10,9 +10,10 @@ public class ObjectsData : MonoBehaviour
     public float speed = 2f;
     public int atk = 3;
     public int value = 70;
+    public int Difficulty = 100;
     [SerializeField] private GameObject atkRange;
 
-    private float CoolDowntime = 3f;
+    private float CoolDowntime;
     public void ATKrange_visable(bool b)
     {
         atkRange.SetActive(b);

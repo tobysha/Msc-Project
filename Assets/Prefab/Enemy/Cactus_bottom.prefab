@@ -337,6 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 5855199491536559839}
+  objectsNeedToDestroy:
+  - {fileID: 5142064133075704473}
 --- !u!114 &6364682029438810348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,11 +354,11 @@ MonoBehaviour:
   Name: Cautus
   HP: 100
   MaxHP: 200
-  speed: 2
+  speed: 0.5
   atk: 4
   value: 120
+  Difficulty: 100
   atkRange: {fileID: 5107952242955405110}
-  CoolDowntime: 2
 --- !u!114 &1712372464425774936
 MonoBehaviour:
   m_ObjectHideFlags: 0

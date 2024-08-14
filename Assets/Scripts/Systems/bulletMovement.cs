@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class bulletMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Transform target;
+    [SerializeField]private Transform target;
     [SerializeField] private float speed  =  2;
     void Start()
     {

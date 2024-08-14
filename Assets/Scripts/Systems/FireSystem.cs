@@ -89,7 +89,7 @@ public class FireSystem : MonoBehaviour
         if (fireObject.TryGetComponent<IFire>(out IFire fireable))
         {
             ///Debug.Log("111");
-            if (countdown <= 0f)
+            if (countdown <= 0f && enemies!=null)
             {
                 ///Debug.Log("222");
 

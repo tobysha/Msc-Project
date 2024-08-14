@@ -5,8 +5,10 @@ using UnityEngine;
 public class ArcherFireLogic : MonoBehaviour, IFire
 {
     public GameObject bullet;
+    private ObjectsData ObjectsData;
     private void Start()
     {
+        ObjectsData = GetComponent<ObjectsData>();
     }
     public void OnFire(Transform target)
     {
@@ -18,5 +20,6 @@ public class ArcherFireLogic : MonoBehaviour, IFire
         GameObject go = Instantiate(bullet, this.transform.position, rotation, gameObject.transform);
         go.GetComponent<bulletMovement>().setTarget(target);
 
+        go.GetComponent<DamageSystem>().damage = ObjectsData.atk;
     }
 }

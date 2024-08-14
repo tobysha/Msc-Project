@@ -29,7 +29,7 @@ public class Test : MonoBehaviour
     public TileBase stoneTile;
     public GameObject[] monsterPrefab;
 
-    private int MoneyCal = 0;
+    public int MoneyCal = 0;
     void Start()
     {
         MoneyCal = 0;
@@ -58,8 +58,12 @@ public class Test : MonoBehaviour
         output = new TileMapOutput(valuesManager, outputTilemap);
         var result = core.CreateOputputGrid();
         output.CreateOutput(manager, result, outputWidth, outputHeight);
-
-
+    }
+    public bool IsMapGenerateSuccess()
+    {
+        bool IsSucccess;
+        IsSucccess = core.Isfinished;
+        return IsSucccess;
     }
     public void SaveTilemap()
     {
@@ -105,7 +109,12 @@ public class Test : MonoBehaviour
                 {
                     float halfHeight = outputTilemap.cellSize.y / 2;
                     Vector3 cellCenter = outputTilemap.CellToWorld(new Vector3Int(x, y, 0)) + new Vector3(0, halfHeight, 0);
-                    Instantiate(monsterPrefab[UnityEngine.Random.Range(0, monsterPrefab.Length)], cellCenter, Quaternion.identity);
+                    GameObject monster = Instantiate(monsterPrefab[UnityEngine.Random.Range(0, monsterPrefab.Length)], cellCenter, Quaternion.identity);
+                    if(monster.gameObject.TryGetComponent(out ObjectsData component))
+                    {
+                        ObjectsData data = component;
+                        MoneyCal += data.HP;
+                    }
                 }
             }
         }

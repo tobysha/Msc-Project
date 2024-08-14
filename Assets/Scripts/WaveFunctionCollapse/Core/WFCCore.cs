@@ -7,8 +7,8 @@ namespace WaveFunctionCollapse{
     {
         OutputGrid outputGrid;
         PatternManager patternManager;
-
-        private int maxIterations = 0;
+        public bool Isfinished = false;
+        public int maxIterations = 0;
 
         public WFCCore(int outputWidth, int outputHeight, int maxIterations, PatternManager patternManage)
         {
@@ -33,12 +33,14 @@ namespace WaveFunctionCollapse{
                     if(innerIteration <= 0)
                     {
                         Debug.Log("Propagation is taking too long");
+                        Isfinished = false;
                         return new int[0][];
                     }
                 }
                 if (solver.CheckForConflicts())
                 {
                     Debug.Log("\n Conflict occured. Iteration: " + iteration);
+                    Isfinished = false;
                     iteration++;
                     outputGrid.ResetAllPossibilities();
                     solver = new CoreSolver(this.outputGrid, this.patternManager);
@@ -46,6 +48,7 @@ namespace WaveFunctionCollapse{
                 else
                 {
                     Debug.Log("Solved on: " + iteration);
+                    Isfinished = true;
                     this.outputGrid.PrintResultsToConsol();
                     break;
                 }
@@ -53,6 +56,7 @@ namespace WaveFunctionCollapse{
             if(iteration>= this.maxIterations)
             {
                 Debug.Log("Coulnd solve the tilemap");
+                Isfinished = false;
             }
             return outputGrid.GetSolvedOutputGrid();
         }

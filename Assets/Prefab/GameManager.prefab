@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8116a38d26efaf348a6e91b9cf66fdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMode: 1
   GameTime: 300
+  Money: 300
   Stage1_UI: {fileID: 0}
   Stage2_UI: {fileID: 0}
   Stage3_UI: {fileID: 0}
   winText: {fileID: 0}
   gameoverText: {fileID: 0}
+  loseText: {fileID: 0}

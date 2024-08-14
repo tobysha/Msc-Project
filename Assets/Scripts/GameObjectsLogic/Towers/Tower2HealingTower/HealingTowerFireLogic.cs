@@ -12,10 +12,6 @@ public class HealingTowerFireLogic : MonoBehaviour, IFire
         Targetdata = target.GetComponent<ObjectsData>();
         Instantiate(bullet, target.transform.position, Quaternion.Euler(new Vector3(0, 0, 90)), target.gameObject.transform);
         Targetdata.HP += selfData.atk;
-        if(Targetdata.HP > Targetdata.MaxHP)
-        {
-            Targetdata.HP = Targetdata.MaxHP;
-        }
     }
 
     // Start is called before the first frame update

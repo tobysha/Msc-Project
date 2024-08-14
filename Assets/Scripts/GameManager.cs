@@ -34,6 +34,13 @@ public class GameManager : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //Debug.Log(enemies);
         initialGameStage();
+        
+    }
+    private void Awake()
+    {
+        test = this.gameObject.GetComponent<Test>();
+        iniGameMap();
+        
     }
 
     void Update()
@@ -45,12 +52,23 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex!=0 && SceneManager.GetActiveScene().buildIndex != 1)// in case current scene is not toturial level or menu
         {
-            if(DebugMode)
+            if(!DebugMode)
             {
-                test = gameObject.GetComponent<Test>();
-                test.CreateTilemap();
-                test.cleanRoads();
+                int maxTry = 20;
+                int i = 0;
+                do
+                {
+                    if (i > maxTry)
+                    {
+                        break;
+                    }
+                    test.CreateWFC();
+                    test.CreateTilemap();
+                    i++;
+                } while (!test.IsMapGenerateSuccess());
+                    test.cleanRoads();
                 test.GenerateMonsters();
+                Money = test.MoneyCal - GameDataNeverDestroy._gameDataNeverDestroy.currentlevel * 50;
             }
         }
     }
@@ -136,6 +154,7 @@ public class GameManager : MonoBehaviour
         if (allEnemiesDestroyed)
         {
             winText.SetActive(true);
+            GameDataNeverDestroy._gameDataNeverDestroy.levels[GameDataNeverDestroy._gameDataNeverDestroy.currentlevel] = 3;
             Time.timeScale = 0;
         }
     }

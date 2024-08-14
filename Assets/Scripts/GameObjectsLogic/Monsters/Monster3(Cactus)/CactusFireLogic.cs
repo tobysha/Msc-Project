@@ -11,6 +11,7 @@ public class CactusFireLogic : MonoBehaviour, IFire
     private float timer = 0f;
     public float Rate = 0.1f;
     private Transform Target;
+    private ObjectsData ObjectsData;
     public void OnFire(Transform target)
     {
         Target = target;
@@ -18,6 +19,7 @@ public class CactusFireLogic : MonoBehaviour, IFire
         {
             Invoke("bulletcreate", i * Rate);
         }
+        ObjectsData = GetComponent<ObjectsData>();
         //foreach (var bulletpoint in bulletCreate)//bullet create
         //{
 
@@ -45,6 +47,7 @@ public class CactusFireLogic : MonoBehaviour, IFire
             Vector3 direction = bulletpoint.transform.rotation * Vector3.up;
             GameObject bullet1 = Instantiate(bullet, bulletpoint.transform.position, Quaternion.identity);
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * speed;
+            bullet1.GetComponent<DamageSystem>().damage = ObjectsData.atk;
             timer = Rate;
         }
     }

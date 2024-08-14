@@ -30,7 +30,6 @@ public class RoadCreateLogic : MonoBehaviour
     {
         GameObject data = GameObject.Find("GameManager");
         gameData = data.GetComponent<GameManager>();
-        //AdjustTileZPosition();
     }
     private void Update()
     {
@@ -171,9 +170,19 @@ public class RoadCreateLogic : MonoBehaviour
                     {
                         towermovement.InitializePath(tilemap, path);
                     }
+                    TowerAutoMove towerAutoMove = tower.GetComponent<TowerAutoMove>();
+                    if(towerAutoMove!= null)
+                    {
+                        towerAutoMove.InitializePath(tilemap);
+                    }
                     gameData.setMoney(gameData.getMoney() - towervalue);
                     Destroy(TowerShadow);
                 }
+            }
+            if(Input.GetMouseButtonDown(1))
+            {
+                isPlacingTower = false;
+                Destroy(TowerShadow);
             }
         }
         else
