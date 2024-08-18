@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameLevel1.unity
     guid: 13aabf9672202d2428c93a80514c32c8
   - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: b89e66a9bf833704aa94c7a543668c13
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 3f04a1b92edf54942bfdc899a9952fc9
+  - enabled: 1
     path: Assets/Scenes/WFCTestScene.unity
     guid: 1c5e8bdd77e672f498334b3ebe2126c4
   - enabled: 0

@@ -7,13 +7,9 @@ public class LifeSystem : MonoBehaviour
 {
     public Slider HPslider;
     [SerializeField] private GameObject[] objectsNeedToDestroy;
-    
-    // Start is called before the first frame update
-    private int MaxHP;
-    private int HP;
-    private int value;
 
     private GameManager gameData;
+    ObjectsData data;
     void Start()
     {
         SelfDataini();
@@ -21,37 +17,37 @@ public class LifeSystem : MonoBehaviour
     }
     void SelfDataini()
     {
-        ObjectsData data = this.GetComponent<ObjectsData>();
-        HP = data.HP;
-        MaxHP = data.MaxHP;
-        value = data.value;
+        data = this.GetComponent<ObjectsData>();
+        //HP = data.HP;
+        //MaxHP = data.MaxHP;
+        //value = data.value;
     }
 
     // Update is called once per frame
     void Update()
     {
         //HPslider.value = (float)(HP / MaxHP);
-        if( HP <= 0 )
+        if( data.HP <= 0 )
         {
             gameObject.SetActive( false );
             if(this.gameObject.CompareTag("Enemy"))
             {
-                gameData.setMoney(gameData.getMoney()+value);
+                gameData.setMoney(gameData.getMoney()+ data.value);
             }
             foreach( GameObject obj in objectsNeedToDestroy )
             {
                 obj.SetActive( false );
             }
         }
-        if(HP > MaxHP )
+        if(data.HP > data.MaxHP )
         {
-            HP = MaxHP;
+            data.HP = data.MaxHP;
         }
     }
     public void setHP(int i)
     {
-        HP += i;
-        SetHealth((float)HP, (float)MaxHP);
+        data.HP += i;
+        SetHealth((float)data.HP, (float)data.MaxHP);
     }
     public void SetHealth(float health, float maxHealth)
     {
@@ -59,7 +55,7 @@ public class LifeSystem : MonoBehaviour
     }
     public int getValue()
     {
-        return value;
+        return data.value;
     }
 
 }

@@ -353,10 +353,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cautus
   HP: 100
-  MaxHP: 200
+  MaxHP: 100
   speed: 0.5
   atk: 4
-  value: 120
+  value: 50
   Difficulty: 100
   atkRange: {fileID: 5107952242955405110}
 --- !u!114 &1712372464425774936

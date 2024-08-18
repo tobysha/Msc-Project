@@ -789,13 +789,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827e4dc7c3fbe4448bb90ec1f46e722d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Funny grass
-  HP: 300
-  MaxHP: 300
-  speed: 0.5
+  Name: PinkFlower
+  HP: 140
+  MaxHP: 140
+  speed: 0.4
   atk: 8
-  value: 70
+  value: 100
   Difficulty: 100
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 7131392199376161736}
 --- !u!114 &9122085580317731374
 MonoBehaviour:

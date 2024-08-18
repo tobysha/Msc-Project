@@ -110,11 +110,12 @@ public class Test : MonoBehaviour
                     float halfHeight = outputTilemap.cellSize.y / 2;
                     Vector3 cellCenter = outputTilemap.CellToWorld(new Vector3Int(x, y, 0)) + new Vector3(0, halfHeight, 0);
                     GameObject monster = Instantiate(monsterPrefab[UnityEngine.Random.Range(0, monsterPrefab.Length)], cellCenter, Quaternion.identity);
-                    if(monster.gameObject.TryGetComponent(out ObjectsData component))
-                    {
-                        ObjectsData data = component;
-                        MoneyCal += data.HP;
-                    }
+                    //if(monster.gameObject.TryGetComponent(out ObjectsData component))
+                    //{
+                    //    ObjectsData data = component;
+                    //    MoneyCal += (int)(data.Difficulty * 90);
+                    //    Debug.Log(MoneyCal);
+                    //}
                 }
             }
         }

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     }
     public void iniGameMap()
     {
-        if(SceneManager.GetActiveScene().buildIndex!=0 && SceneManager.GetActiveScene().buildIndex != 1)// in case current scene is not toturial level or menu
+        if(SceneManager.GetActiveScene().buildIndex >= 4)// in case current scene is not toturial level or menu
         {
             if(!DebugMode)
             {
@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
                 } while (!test.IsMapGenerateSuccess());
                     test.cleanRoads();
                 test.GenerateMonsters();
-                Money = test.MoneyCal - GameDataNeverDestroy._gameDataNeverDestroy.currentlevel * 50;
+                Money = test.MoneyCal;
+                //Money = test.MoneyCal - GameDataNeverDestroy._gameDataNeverDestroy.currentlevel * 50;
             }
         }
     }

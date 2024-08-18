@@ -7,62 +7,80 @@ using UnityEngine.Tilemaps;
 public class MovementSystem : MonoBehaviour
 {
     public Tilemap tilemap; // Tilemap reference
-    public List<Vector3Int> waypoints; // Array of grid positions
-    public float speed = 2f; // Movement speed
 
-    private bool movingForward = true; // Direction flag
-    private int currentWaypointIndex = 0; // Current waypoint index
-    private ObjectsData objData;
+    public float moveSpeed = 2f; // 移动速度
+    //public Tilemap tilemap; // 引用Tilemap
+    public TileBase roadTile; // 可移动的Tile类型
+    public LayerMask towerLayer; // 防御塔的层，用于检测目标位置是否已被占据
+
+    private Vector3Int currentCellPosition; // 当前所在的Tile格子位置
+    private Vector3 targetPosition; // 目标位置
+    private bool isMoving = false; // 标识是否正在移动
+
     void Start()
     {
-        objData = GetComponent<ObjectsData>();
-        //velocity = new VelocityComp(1, 0);
-        //transform.position = tilemap.CellToWorld(waypoints[currentWaypointIndex]) + new Vector3(0.5f, 0.5f, 0);
+
     }
     public void InitializePath(Tilemap map, List<Vector3Int> path)
     {
         tilemap = map;
-        waypoints = path;
-        if (waypoints.Count > 0)
-        {
-            transform.position = tilemap.GetCellCenterWorld(waypoints[0]);
-        }
+        currentCellPosition = tilemap.WorldToCell(transform.position);
+        targetPosition = tilemap.GetCellCenterWorld(currentCellPosition);
+        transform.position = targetPosition ;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (waypoints == null || waypoints.Count == 0)
-            return;
 
-        Vector3 targetPosition = tilemap.GetCellCenterWorld(waypoints[currentWaypointIndex]);
-        Vector3 direction = (targetPosition - transform.position).normalized;
-
-        transform.position += direction * speed * Time.deltaTime;
-
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        OnKeyboardMovement();
+    }
+    private void OnKeyboardMovement()
+    {
+        if (isMoving)
         {
-            if (movingForward)
+            
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
-                currentWaypointIndex++;
-                if (currentWaypointIndex >= waypoints.Count)
-                {
-                    currentWaypointIndex = waypoints.Count - 1;
-                    movingForward = false;
-                }
+                transform.position = targetPosition;
+                isMoving = false;
             }
-            else
+            return;
+        }
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        if ((horizontal != 0 || vertical != 0) && !isMoving)
+        {
+            Vector3Int direction = new Vector3Int(
+                horizontal != 0 ? (int)Mathf.Sign(horizontal) : 0,
+                vertical != 0 ? (int)Mathf.Sign(vertical) : 0,
+                0
+            );
+
+            if (direction.x != 0 && direction.y != 0)
             {
-                currentWaypointIndex--;
-                if (currentWaypointIndex < 0)
-                {
-                    currentWaypointIndex = 0;
-                    movingForward = true;
-                }
+                direction = new Vector3Int(direction.x - direction.y, direction.x + direction.y, 0);
+            }
+
+            Vector3Int newCellPosition = currentCellPosition + direction;
+
+            TileBase tileAtTarget = tilemap.GetTile(newCellPosition);
+
+            Vector3 targetWorldPosition = tilemap.GetCellCenterWorld(newCellPosition);
+            Collider2D towerAtTarget = Physics2D.OverlapPoint(targetWorldPosition, towerLayer);
+
+
+            if (tileAtTarget == roadTile && towerAtTarget == null)
+            {
+                currentCellPosition = newCellPosition;
+                targetPosition = tilemap.GetCellCenterWorld(currentCellPosition);//offset
+                isMoving = true;
             }
         }
-        //Vector3 vector3 = transform.position;
-        //this.gameObject.transform.position = new Vector3(vector3.x + speed * velocity.GetVelocity_X() * Time.deltaTime, vector3.y + speed * velocity.GetVelocity_Y() * Time.deltaTime, 0f);
 
     }
 }
+

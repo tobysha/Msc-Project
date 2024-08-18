@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7836633025901406762}
   - component: {fileID: 3948174224398554447}
   - component: {fileID: 722722208019839124}
+  - component: {fileID: 7095167551219019813}
   m_Layer: 0
   m_Name: RadarBullet
   m_TagString: StableTowerbullet
@@ -161,3 +162,49 @@ MonoBehaviour:
   damageEffectSprite1: {fileID: -3084395802447352074, guid: a6b7a5a5248f6cf45a241331b9743f69, type: 3}
   damageEffectSprite2: {fileID: 148835967896664530, guid: d91a85548b3ddf24c8d6198f4ee59097, type: 3}
   duration: 3
+--- !u!68 &7095167551219019813
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086021445033020254}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.39, y: 0}
+  m_EdgeRadius: 0.52
+  m_Points:
+  - {x: -0.41044438, y: 0.34807503}
+  - {x: -1.1534449, y: -0.04884933}
+  - {x: -0.4714211, y: -0.4438715}
+  - {x: 0.37900436, y: -0.08493185}
+  - {x: -0.3718777, y: 0.3467544}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

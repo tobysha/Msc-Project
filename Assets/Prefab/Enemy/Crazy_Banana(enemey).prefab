@@ -553,13 +553,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827e4dc7c3fbe4448bb90ec1f46e722d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Funny grass
-  HP: 200
-  MaxHP: 200
+  Name: banana
+  HP: 120
+  MaxHP: 120
   speed: 0.5
   atk: 8
-  value: 70
-  Difficulty: 100
+  value: 130
+  Difficulty: 130
   atkRange: {fileID: 2204897736691033216}
 --- !u!114 &8959904951524582293
 MonoBehaviour:

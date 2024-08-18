@@ -21,11 +21,11 @@ public class CameraFlow : MonoBehaviour
     private void Update()
     {
         // WASD移动
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
 
-        Vector3 moveDirection = new Vector3(horizontal, vertical, 0);
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        //Vector3 moveDirection = new Vector3(horizontal, vertical, 0);
+        //transform.position += moveDirection * moveSpeed * Time.deltaTime;
 
         // 限制摄像机移动范围
         Vector3 clampedPosition = transform.position;

@@ -186,12 +186,12 @@ GameObject:
   - component: {fileID: 7795803765200587248}
   - component: {fileID: 6361283081982294583}
   - component: {fileID: 2273780861799607597}
-  - component: {fileID: -1465628138104612063}
   - component: {fileID: 7043104286498830295}
   - component: {fileID: 6907194267968242925}
   - component: {fileID: 5792263110871396552}
   - component: {fileID: 6056450402358122509}
-  m_Layer: 0
+  - component: {fileID: -8791266214877526265}
+  m_Layer: 7
   m_Name: Radar
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -345,20 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 7496727732090137695}
---- !u!114 &-1465628138104612063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408725452441362716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7d4d5e3f48f054c9098e57aa950c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
-  moveSpeed: 1
+  objectsNeedToDestroy: []
 --- !u!114 &7043104286498830295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,12 +384,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Radar
-  HP: 100
-  MaxHP: 100
-  speed: 1
+  HP: 150
+  MaxHP: 150
+  speed: 0.2
   atk: 7
-  value: 70
+  value: 120
   Difficulty: 0
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 0}
 --- !u!114 &6056450402358122509
 MonoBehaviour:
@@ -417,6 +405,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5086021445033020254, guid: 30bc41ec9bf534c42aad1d181501e3e0, type: 3}
+--- !u!114 &-8791266214877526265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408725452441362716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023fee10515e79489dad3ce2f3fa032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  moveSpeed: 2
+  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &3443960492930256987
 GameObject:
   m_ObjectHideFlags: 0

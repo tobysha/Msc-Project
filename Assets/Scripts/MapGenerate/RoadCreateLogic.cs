@@ -22,6 +22,7 @@ public class RoadCreateLogic : MonoBehaviour
 
     private GameObject TowerShadow;
     private bool isPlacingTower = false;
+    public LayerMask towerLayer;
 
     private GameManager gameData;
     private int originMoney;
@@ -160,7 +161,8 @@ public class RoadCreateLogic : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (IsRoadTile(cellPos))
+                Collider2D towerAtTarget = Physics2D.OverlapPoint(cellCenterPos, towerLayer);
+                if (IsRoadTile(cellPos)&&towerAtTarget==null)
                 {
                     List<Vector3Int> path = FindPath(cellPos);
                     isPlacingTower = false;

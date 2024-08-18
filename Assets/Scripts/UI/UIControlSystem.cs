@@ -190,6 +190,13 @@ public class UIControlSystem : MonoBehaviour
     }
 
     /*-----------------------------------------tutorial Text-------------------------------*/
+    public void Not_tutorial_button(int currentbuttom)
+    {
+        if(currentbuttom==currentText)
+        {
+            Tutorial1_Next_page();  
+        }
+    }
     public void Tutorial1_Next_page()
     {
         if(ToturialTexts!=null)

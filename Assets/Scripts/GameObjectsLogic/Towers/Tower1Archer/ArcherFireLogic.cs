@@ -17,7 +17,7 @@ public class ArcherFireLogic : MonoBehaviour, IFire
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         // 创建旋转四元数，只绕 Z 轴旋转
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        GameObject go = Instantiate(bullet, this.transform.position, rotation, gameObject.transform);
+        GameObject go = Instantiate(bullet, this.transform.position, rotation);
         go.GetComponent<bulletMovement>().setTarget(target);
 
         go.GetComponent<DamageSystem>().damage = ObjectsData.atk;

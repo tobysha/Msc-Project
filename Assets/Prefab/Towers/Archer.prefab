@@ -320,8 +320,8 @@ RectTransform:
   m_GameObject: {fileID: 4737147278590251011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.022, y: 0.033350002, z: 0.02}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2144868108605693373}
   - {fileID: 4914105022768512788}
@@ -510,14 +510,14 @@ GameObject:
   - component: {fileID: 1303735333067873508}
   - component: {fileID: 1459585662092284560}
   - component: {fileID: 553816292104180465}
-  - component: {fileID: 8208365948997877544}
   - component: {fileID: 5313459238265880499}
   - component: {fileID: 1576806462297380055}
   - component: {fileID: -8821008987214969426}
   - component: {fileID: 7325351546110601800}
   - component: {fileID: 1155820866980919542}
   - component: {fileID: 2476725311478120135}
-  m_Layer: 0
+  - component: {fileID: 4416578876749123874}
+  m_Layer: 7
   m_Name: Archer
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -607,20 +607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7222043132704073015, guid: 0c2fd4d86765583499ee9011fab451f6, type: 3}
---- !u!114 &8208365948997877544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7820243548913518498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7d4d5e3f48f054c9098e57aa950c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
-  moveSpeed: 1
 --- !u!114 &5313459238265880499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 4252243348985088800}
+  objectsNeedToDestroy: []
 --- !u!114 &-8821008987214969426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +653,7 @@ MonoBehaviour:
   atk: 20
   value: 100
   Difficulty: 0
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 5395782683601510031}
 --- !u!50 &7325351546110601800
 Rigidbody2D:
@@ -752,6 +740,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be34085bdc03dfc4f9c5c4a7b06cbe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4416578876749123874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820243548913518498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023fee10515e79489dad3ce2f3fa032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  moveSpeed: 2
+  roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &9064444928818132655
 GameObject:
   m_ObjectHideFlags: 0

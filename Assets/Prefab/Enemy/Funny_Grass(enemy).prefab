@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 8508025377569166684}
+  objectsNeedToDestroy: []
 --- !u!70 &4737207738948848498
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -430,13 +431,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Funny grass
-  HP: 100
-  MaxHP: 100
-  speed: 0.5
-  atk: 8
+  HP: 150
+  MaxHP: 150
+  speed: 0.66
+  atk: 5
   value: 70
+  Difficulty: 100
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 3075391707425538319}
-  CoolDowntime: 3
 --- !u!114 &7761576490044584173
 MonoBehaviour:
   m_ObjectHideFlags: 0

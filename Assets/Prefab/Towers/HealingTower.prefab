@@ -101,8 +101,8 @@ RectTransform:
   m_GameObject: {fileID: 2343576033651051200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.01908125, y: 0.03325, z: 0.02}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3264570810915457879}
   - {fileID: 7405077979835662516}
@@ -260,10 +260,10 @@ GameObject:
   - component: {fileID: 691440871956875}
   - component: {fileID: 1198482323524171814}
   - component: {fileID: 6343620283507122618}
-  - component: {fileID: -8512160415164308102}
+  - component: {fileID: -7285108401166689268}
   - component: {fileID: 64907536645849816}
   - component: {fileID: 3927509584906219874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealingTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPslider: {fileID: 2759125608708184540}
+  objectsNeedToDestroy: []
 --- !u!114 &6343620283507122618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
---- !u!114 &-8512160415164308102
+--- !u!114 &-7285108401166689268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,11 +451,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5026883489364313394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7d4d5e3f48f054c9098e57aa950c22, type: 3}
+  m_Script: {fileID: 11500000, guid: 9023fee10515e79489dad3ce2f3fa032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  moveSpeed: 2
   roadTile: {fileID: 11400000, guid: 7dc2149f93b327d469cfc0774ae4b25d, type: 2}
-  moveSpeed: 1
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &64907536645849816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +479,7 @@ MonoBehaviour:
   atk: 30
   value: 70
   Difficulty: 0
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 7820320753117762969}
 --- !u!114 &3927509584906219874
 MonoBehaviour:
