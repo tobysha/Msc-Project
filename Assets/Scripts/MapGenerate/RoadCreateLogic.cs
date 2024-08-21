@@ -25,12 +25,15 @@ public class RoadCreateLogic : MonoBehaviour
     public LayerMask towerLayer;
 
     private GameManager gameData;
+    private Audiomanager audioManager;
     private int originMoney;
 
     private void Start()
     {
         GameObject data = GameObject.Find("GameManager");
+        GameObject audio = GameObject.Find("Sfxmanager");
         gameData = data.GetComponent<GameManager>();
+        audioManager = audio.GetComponent<Audiomanager>();
     }
     private void Update()
     {
@@ -85,6 +88,7 @@ public class RoadCreateLogic : MonoBehaviour
                 gameData.setMoney(gameData.getMoney()-RoadCost);
                 // 根据鼠标拖动，修改Tilemap中的Tile内容
                 tilemap.SetTile(cellPosition, tiles[Random.Range(0, tiles.Length)]);
+                audioManager.PlaySFX(0);
             }
         }
     }

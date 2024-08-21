@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3900865892491939413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
         m_MethodName: OnCreateTower
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5026883489364313394, guid: c6bc6af8ff589f24a9f08be85be4e85a, type: 3}
+          m_ObjectArgument: {fileID: 3408725452441362716, guid: 9e721a605eab1c74f90d543f2aba445e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
         m_MethodName: OnCreateTower
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5026883489364313394, guid: c6bc6af8ff589f24a9f08be85be4e85a, type: 3}
+          m_ObjectArgument: {fileID: 3408725452441362716, guid: 9e721a605eab1c74f90d543f2aba445e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

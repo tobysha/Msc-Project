@@ -71,7 +71,7 @@ public class Test : MonoBehaviour
         {
             outputTilemap = output.OutputImage;
             GameObject objectToSave = outputTilemap.gameObject;
-            PrefabUtility.SaveAsPrefabAsset(objectToSave, "Assets/Saved/output.prefab");
+            //PrefabUtility.SaveAsPrefabAsset(objectToSave, "Assets/Saved/output.prefab");
         }
 
     }

@@ -13,8 +13,9 @@ public class FireSystem : MonoBehaviour
 
     private bool isShadow = false;
     private GameManager gameManager;
+    private Audiomanager audioManager;
     private ObjectsData objectsData;
-
+    public int audioNum;
     public List<GameObject> enemies;
 
     private bool crazyMode = false;
@@ -29,6 +30,7 @@ public class FireSystem : MonoBehaviour
         //AdjustTileZPosition();
         enemies = new List<GameObject>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("Sfxmanager").GetComponent<Audiomanager>();
         objectsData = this.gameObject.GetComponent<ObjectsData>();
         InvokeRepeating("CrazyModeScan", 1f, 1f);
     }
@@ -92,7 +94,7 @@ public class FireSystem : MonoBehaviour
             if (countdown <= 0f && enemies!=null)
             {
                 ///Debug.Log("222");
-
+                audioManager.PlaySFX(audioNum);
                 fireable.OnFire(getCloseEnemy());
                 countdown = objectsData.GetCoolDowntime();
             }

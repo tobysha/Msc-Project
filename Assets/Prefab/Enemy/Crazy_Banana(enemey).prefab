@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a2e2a9eb1433e44887bfef218601dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioNum: 8
   enemies: []
 --- !u!114 &4751863671467066610
 MonoBehaviour:
@@ -560,6 +561,7 @@ MonoBehaviour:
   atk: 8
   value: 130
   Difficulty: 130
+  Difficulty_atk_supplement: 1
   atkRange: {fileID: 2204897736691033216}
 --- !u!114 &8959904951524582293
 MonoBehaviour:

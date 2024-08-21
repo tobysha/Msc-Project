@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameDataNeverDestroy;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //Debug.Log(enemies);
-        initialGameStage();
+        //initialGameStage();
         
     }
     private void Awake()
@@ -105,7 +104,7 @@ public class GameManager : MonoBehaviour
     public void GameStageChange(GameStage gameStage)
     {
         CurrentStage = gameStage;
-        UI_StageChange();
+        //UI_StageChange();
     }
     private void initialGameStage()
     {
@@ -152,7 +151,7 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        if (allEnemiesDestroyed)
+        if (allEnemiesDestroyed&& !DebugMode)
         {
             winText.SetActive(true);
             GameDataNeverDestroy._gameDataNeverDestroy.levels[GameDataNeverDestroy._gameDataNeverDestroy.currentlevel] = 3;

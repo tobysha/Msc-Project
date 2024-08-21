@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a2e2a9eb1433e44887bfef218601dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioNum: 4
   enemies: []
 --- !u!114 &6907194267968242925
 MonoBehaviour:

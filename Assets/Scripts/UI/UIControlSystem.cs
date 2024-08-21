@@ -25,34 +25,33 @@ public class UIControlSystem : MonoBehaviour
     public GameObject StartMenu;
     public GameObject PauseMenu;
     ///////music part/////////
-    private AudioSource musicAudio;
-    public AudioClip buttonClip;
-    public AudioSource gameAudio;
+    public GameObject SfxManager;
     public Slider Music_slider;
     public Slider game_sound_slider;
+    private Audiomanager audioManager;
 
     [SerializeField] private GameObject[] ToturialTexts;
     int currentText = 0;
     public void Start()
     {
         CurGameScene = SceneManager.GetActiveScene().buildIndex;
-        if(CurGameScene!=0)//防止在manu运行下面的东西
+        if(CurGameScene!=0)
         {
             rcl = tilemap.GetComponent<RoadCreateLogic>();
             GameObject data = GameObject.Find("GameManager");
             gameManager = data.GetComponent<GameManager>();
         }
-        //music_volume_setting();
+        music_volume_setting();
     }
     void music_volume_setting()
     {
-        musicAudio = GetComponent<AudioSource>();
+        audioManager = SfxManager.GetComponent<Audiomanager>();
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             if (GameDataNeverDestroy._gameDataNeverDestroy != null)
             {
-                musicAudio.volume = GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn;
-                gameAudio.volume = GameDataNeverDestroy._gameDataNeverDestroy.game_Volume;
+                audioManager.SetBGMVolume(GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn);
+                audioManager.SetSFXVolume(GameDataNeverDestroy._gameDataNeverDestroy.game_Volume);
             }
         }
         else
@@ -65,30 +64,36 @@ public class UIControlSystem : MonoBehaviour
         }
     }
     /*-----------------Menu UI---------------------------*/
-
+    public void PlayBottonSFX()
+    {
+        audioManager.PlaySFX(1);
+    }
+    public void PlayBGM(int music)
+    {
+        audioManager.PlayBGM(music);
+    }
     public void On_Music_Value_Change(Slider slider)
     {
-        //Debug.Log(slider.value);
-        musicAudio.volume = slider.value;
+        audioManager.SetBGMVolume(slider.value);
         GameDataNeverDestroy._gameDataNeverDestroy.Music_Volumn = slider.value;
     }
     public void On_Game_Value_Change(Slider slider)
     {
-        gameAudio.volume = slider.value;
+        audioManager.SetSFXVolume(slider.value);
         GameDataNeverDestroy._gameDataNeverDestroy.game_Volume = slider.value;
     }
     public void On_start_button()
     {
         StartMenu.SetActive(false);
         levelselection.SetActive(true);
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);//button sound
 
     }
     public void On_setting_button()
     {
         StartMenu.SetActive(false);
         settingmenu.SetActive(true);
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);
     }
     public void On_selection_button(int scene)
     {
@@ -97,6 +102,7 @@ public class UIControlSystem : MonoBehaviour
         int i = 0;
         int.TryParse(s, out i);//Change the value tpye into int*/
         //gameAudio.PlayOneShot(buttonClip);
+        //audioManager.PlaySFX(1);
         try
         {
             SceneManager.LoadScene(scene);
@@ -110,18 +116,19 @@ public class UIControlSystem : MonoBehaviour
     {
         levelselection.SetActive(false);
         StartMenu.SetActive(true);
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);
 
     }
     public void On_settingExit_button()
     {
         settingmenu.SetActive(false);
         StartMenu.SetActive(true);
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);
     }
+
     public void OnExitGame()
     {
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);
 #if UNITY_EDITOR
         //UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -133,30 +140,30 @@ public class UIControlSystem : MonoBehaviour
     /*----------------------------------Gaming UI-----------------*/
     public void On_pause_button()
     {
-        //gameAudio.PlayOneShot(buttonClip);
         PauseMenu.SetActive(true);
         Score_check();
         Time.timeScale = 0;
+        PlayBottonSFX();
 
     }
     public void On_Resume_button()
     {
-        //gameAudio.PlayOneShot(buttonClip);
         PauseMenu.SetActive(false);
         Time.timeScale = 1;
+        PlayBottonSFX();
     }
     public void On_Restart_button()
     {
-        //gameAudio.PlayOneShot(buttonClip);
         Time.timeScale = 1;
         int currentscene = SceneManager.GetActiveScene().buildIndex;
+        PlayBottonSFX();
         SceneManager.LoadScene(currentscene);
     }
     public void On_Menu_button()
     {
-        //gameAudio.PlayOneShot(buttonClip);
         Time.timeScale = 1;
         Score_check();
+        PlayBottonSFX();
         SceneManager.LoadScene(0);
     }
     public void On_Next_level()
@@ -170,7 +177,7 @@ public class UIControlSystem : MonoBehaviour
             SceneManager.LoadScene(currentscene);
             return;
         }
-        //gameAudio.PlayOneShot(buttonClip);
+        audioManager.PlaySFX(1);
         SceneManager.LoadScene(currentscene + 1);
     }
     private void Score_check()
@@ -183,7 +190,6 @@ public class UIControlSystem : MonoBehaviour
             GameDataNeverDestroy._gameDataNeverDestroy.levels[currentLevel - 1] = score;
 
         }
-        //PlayerPrefs.SetInt("currentScore", i);
     }
     public void fast_forward_button() {
         Time.timeScale = 2;
@@ -196,6 +202,7 @@ public class UIControlSystem : MonoBehaviour
         {
             Tutorial1_Next_page();  
         }
+        audioManager.PlaySFX(1);
     }
     public void Tutorial1_Next_page()
     {
@@ -211,10 +218,12 @@ public class UIControlSystem : MonoBehaviour
                 ToturialTexts[currentText].SetActive(true);
             }
         }
+        audioManager.PlaySFX(1);
     }
     public void Tutorial_camera_text(GameObject go)
     {
         go.SetActive(false);
+        audioManager.PlaySFX(1);
     }
 
 
@@ -233,6 +242,7 @@ public class UIControlSystem : MonoBehaviour
         rcl.setDebugMode(false);
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(false);
+        audioManager.PlaySFX(1);
     }
     public void OnDenyRoad()
     {
@@ -240,6 +250,7 @@ public class UIControlSystem : MonoBehaviour
         rcl.setDebugMode(false);
         rcl.ResetTilemap();
         tilemapComfirmButton.SetActive(false);
+        audioManager.PlaySFX(1);
     }
     public void OnStartGame()
     {
@@ -250,6 +261,7 @@ public class UIControlSystem : MonoBehaviour
         rcl.setDebugMode(true);
         rcl.SaveOriginalState();
         tilemapComfirmButton.SetActive(true);
+        audioManager.PlaySFX(1);
     }
     public void OnFinishButton()
     {
@@ -258,6 +270,7 @@ public class UIControlSystem : MonoBehaviour
         rcl.SaveOriginalState();
         gameManager.GameStageChange(GameManager.GameStage.GamingStage);
         Time.timeScale = 0;
+        audioManager.PlaySFX(1);
     }
 
 
@@ -265,6 +278,7 @@ public class UIControlSystem : MonoBehaviour
     public void OnCreateTower(GameObject gameObject)
     {
         rcl.setPlacingTowerState(true, gameObject);
+        audioManager.PlaySFX(1);
     }
 
     
